@@ -32,6 +32,7 @@ Parcours du prototype Figma :
 - `controle/<station>.html` : saisie du code (Réveil 1448, Frigo 7231, Aspirateur 4530, Miroir 1725, Thermostat 2042, codes du prototype Figma) ; le × ramène au menu
 - `controle/final.html` : « Terminé ! », affiché après la cinquième station réussie
 - `controle/plan.html` : plan de l’appartement (bouton du menu)
+- `controle/camera.html` : caméra extérieure (bouton du menu) ; affiche `controle/assets/camera.gif`, à fournir
 - `controle/chien.html` et `controle/bonus.html` : Marley et l’énigme bonus (icônes chien et livre de la barre des tâches), code « marley », puis `chien-reussite.html`
 
 Les cinq écrans de code partagent `controle/js/station.js` ; le titre, le code et le message de réussite se règlent dans chaque page :

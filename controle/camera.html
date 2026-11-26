@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>M.U.S.T – Caméra extérieure</title>
+	<link rel="stylesheet" href="../shared/css/win95.css">
+	<link rel="stylesheet" href="css/controle.css">
+	<style>
+		/* Caméra extérieure : même grande fenêtre que le plan, avec l’image de la caméra */
+		.stage {
+			background-image: url("assets/bg-plan.png");
+		}
+
+		.stage::before {
+			display: none;
+		}
+
+		.camera {
+			--win-x: 195px;
+			--win-y: 72px;
+			--win-w: 1530px;
+		}
+
+		/* Écran de la caméra : zone enfoncée sous la barre de titre */
+		.camera__screen {
+			position: absolute;
+			left: 255px;
+			top: 220px;
+			width: 1410px;
+			height: 760px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			background: #000;
+			box-shadow:
+				inset 4.94px 4.94px 0 var(--gris-fonce),
+				inset -4.94px -4.94px 0 #fff;
+		}
+
+		/* Image fournie : assets/camera.gif (remplit l’écran sans être déformée) */
+		.camera__screen img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	</style>
+</head>
+<body class="camera">
+	<main class="stage">
+		<section class="window window--station relief-window" aria-labelledby="camera-title">
+			<header class="titlebar">
+				<h1 class="titlebar__title" id="camera-title">Caméra extérieure</h1>
+				<span class="titlebar__btn titlebar__btn--min relief-button" aria-hidden="true"></span>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/icon-maximize.svg" alt=""></span>
+				<a class="titlebar__btn titlebar__btn--close relief-button" href="menu.html" aria-label="Fermer"><img src="assets/icon-close.svg" alt=""></a>
+			</header>
+		</section>
+
+		<div class="camera__screen">
+			<img src="assets/camera.gif" alt="Image de la caméra extérieure">
+		</div>
+	</main>
+	<script src="../shared/js/stage.js"></script>
+</body>
+</html>
