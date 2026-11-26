@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>M.U.S.T – Stations</title>
+	<style>
+		@font-face {
+			font-family: "Recursive";
+			src: url("shared/fonts/recursive-latin-full-normal.woff2") format("woff2-variations");
+			font-weight: 300 1000;
+		}
+
+		body {
+			margin: 0;
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #000;
+			font-family: "Recursive", monospace;
+			font-variation-settings: "MONO" 1;
+		}
+
+		main {
+			width: min(32rem, 90vw);
+			padding: 4px;
+			background: #bfbfbf;
+			box-shadow:
+				inset -1px -1px 0 #000,
+				inset 1px 1px 0 #dbdbdb,
+				inset -2px -2px 0 #808080,
+				inset 2px 2px 0 #fff;
+		}
+
+		h1 {
+			margin: 0;
+			padding: 0.3em 0.6em;
+			background: linear-gradient(to right, #00007b, #1085d2);
+			color: #fff;
+			font-size: 1.2rem;
+			font-weight: 400;
+		}
+
+		ul {
+			margin: 0;
+			padding: 1rem;
+			list-style: none;
+			display: grid;
+			gap: 0.6rem;
+		}
+
+		a {
+			display: flex;
+			justify-content: space-between;
+			padding: 0.6em 1em;
+			background: #bfbfbf;
+			color: #000;
+			text-decoration: none;
+			box-shadow:
+				inset -1px -1px 0 #000,
+				inset 1px 1px 0 #fff,
+				inset -2px -2px 0 #808080,
+				inset 2px 2px 0 #dbdbdb;
+		}
+
+		a:active {
+			box-shadow:
+				inset 1px 1px 0 #000,
+				inset -1px -1px 0 #fff,
+				inset 2px 2px 0 #808080,
+				inset -2px -2px 0 #dbdbdb;
+		}
+
+		small {
+			color: #555;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<h1>M.U.S.T – Stations</h1>
+		<ul>
+			<li><a href="controle/index.html">Contrôle <small>1920 × 1080</small></a></li>
+			<li><a href="miroir/index.html">Miroir <small>1024 × 768</small></a></li>
+			<li><a href="frigo/index.html">Frigo <small>768 × 1024</small></a></li>
+			<li><a href="reveil/index.html">Réveil <small>844 × 390</small></a></li>
+			<li><a href="aspirateur/index.html">Aspirateur <small>844 × 390</small></a></li>
+			<li><a href="https://eracom-id451.github.io/temp-ctrl/">Thermostat <small>autre dépôt</small></a></li>
+		</ul>
+	</main>
+</body>
+</html>
