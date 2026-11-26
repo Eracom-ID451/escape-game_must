@@ -62,7 +62,8 @@ get icon-recycle.png "$P/d21d0.png"
 
 # Plan de l’appartement et statut « Connecté »
 get bg-plan.png "https://www.figma.com/api/mcp/asset/535ec2d0-5b48-49e6-bdfb-be2cf2f4064e/d3ce1.png"
-get plan.png "https://www.figma.com/api/mcp/asset/dbd6d549-9a0e-488c-b43d-dcea1498786b.png"
+# Même plan que la carte de l’aspirateur (maquette Aspirateur, exporté à 3×)
+get plan.png "https://www.figma.com/api/mcp/asset/92b254ff-62a5-449f-a6e1-ba9a197ecbd1.png"
 get icon-connected.png "https://www.figma.com/api/mcp/asset/8474d1a9-33c1-496c-bc6c-313bcce2e725/03fe5.png"
 
 # Écran final et Marley
