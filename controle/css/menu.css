@@ -233,6 +233,21 @@
 	top: 5px;
 }
 
+/* Station réussie (composant « Bouton_Status_Niveau ») */
+.is-connected .mini__status img {
+	left: 10px;
+	top: 4px;
+	width: 22px;
+	height: 27px;
+}
+
+.mini__letter {
+	left: 334px;
+	top: 380px;
+	font-size: 16px;
+	line-height: normal;
+}
+
 /* ---------- Boutons à droite ---------- */
 
 .btn--desktop {

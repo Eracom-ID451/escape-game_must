@@ -59,3 +59,8 @@ get icon-help.png "$P/b40e0.png"
 get icon-search.png "$P/02604.png"
 get icon-volume.png "$P/554ff.png"
 get icon-recycle.png "$P/d21d0.png"
+
+# Plan de l’appartement et statut « Connecté »
+get bg-plan.png "https://www.figma.com/api/mcp/asset/535ec2d0-5b48-49e6-bdfb-be2cf2f4064e/d3ce1.png"
+get plan.png "https://www.figma.com/api/mcp/asset/dbd6d549-9a0e-488c-b43d-dcea1498786b.png"
+get icon-connected.png "https://www.figma.com/api/mcp/asset/8474d1a9-33c1-496c-bc6c-313bcce2e725/03fe5.png"

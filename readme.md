@@ -38,6 +38,9 @@ mountStation(document.querySelector(".stage"), {
 
 - À la validation, l’événement `station:validate` est émis sur `document` avec `{ id, code, correct }`.
 - Une station réussie est notée dans `localStorage` (clé `must:<id>`) ; le bouton OK du dialogue ramène au menu.
+- Le menu affiche alors la station « Connecté » avec sa lettre (H, I, E, C, N). Le bouton × d’une fenêtre ramène aussi au menu.
+- Remise à zéro entre deux groupes : ouvrir `controle/index.html?reset`.
+- `controle/plan.html` : plan de l’appartement (bouton « Plan de l’appartement » du menu).
 
 ## Miroir
 
