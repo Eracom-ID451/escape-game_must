@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>M.U.S.T – Miroir</title>
+	<link rel="stylesheet" href="../shared/css/win95.css">
+	<link rel="stylesheet" href="css/controle.css">
+</head>
+<body class="station--miroir">
+	<main class="stage"></main>
+	<script src="../shared/js/stage.js"></script>
+	<script src="js/station.js"></script>
+	<script>
+		mountStation(document.querySelector(".stage"), {
+			id: "miroir",
+			title: "Miroir",
+			solution: "0000", // À confirmer : dans la maquette Figma Miroir, le code est « caché » dans la météo de Los Angeles, vendredi 32° / 37° → probablement 3237
+			success: "Bravo (E)\nVous avez débloqué\nle miroir",
+		});
+	</script>
+</body>
+</html>

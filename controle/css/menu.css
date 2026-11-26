@@ -1,0 +1,315 @@
+/*
+	Menu principal : bureau avec les cinq stations, boutons et barre des tâches.
+	À charger après ../shared/css/win95.css et css/controle.css.
+*/
+
+.menu {
+	--background: url("../assets/bg-menu.png");
+}
+
+.menu .stage::before {
+	top: 0;
+	height: 1081px;
+}
+
+/* ---------- Petite fenêtre de station ---------- */
+
+.mini {
+	--u: 1px;
+	position: absolute;
+	left: var(--x);
+	top: var(--y);
+	width: 400px;
+	height: 419px;
+	font-size: 16px;
+	color: var(--noir);
+}
+
+.mini--frigo { --x: 283px; --y: 91px; }
+.mini--aspirateur { --x: 765px; --y: 90px; }
+.mini--miroir { --x: 1260px; --y: 93px; }
+.mini--reveil { --x: 532px; --y: 540px; }
+.mini--thermostat { --x: 1027px; --y: 540px; }
+
+.mini > * {
+	position: absolute;
+}
+
+.mini__titlebar {
+	left: 4px;
+	top: 4px;
+	width: 392px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding-left: 3px;
+	background: var(--titre);
+}
+
+.mini__icon {
+	object-fit: cover;
+}
+
+.mini__title {
+	color: var(--gris);
+	line-height: normal;
+	white-space: nowrap;
+}
+
+.mini__buttons {
+	position: absolute;
+	right: 1px;
+	top: 2px;
+	display: flex;
+	gap: 4px;
+}
+
+.mini__btn {
+	position: relative;
+	width: 26px;
+	height: 26px;
+	background: #c3c3c3;
+	box-shadow:
+		inset -2px -2px 0 #262626,
+		inset 2px 2px 0 #f0f0f0,
+		inset -4px -4px 0 #7e7e7e;
+}
+
+.mini__btn img {
+	position: absolute;
+	left: 4px;
+	top: 4px;
+}
+
+.mini__btn--min::after {
+	content: "";
+	position: absolute;
+	left: 7px;
+	top: 20px;
+	width: 15px;
+	height: 2px;
+	background: #000;
+}
+
+.mini__btn--close {
+	width: 28px;
+}
+
+.mini__btn--close img {
+	left: 6px;
+	top: 6px;
+}
+
+.mini__menu {
+	left: 4px;
+	top: 34px;
+	height: 20px;
+	display: flex;
+	align-items: center;
+	font-family: "MS Sans Serif", "Microsoft Sans Serif", Tahoma, sans-serif;
+	font-variation-settings: normal;
+	font-size: 11px;
+	line-height: 12px;
+	color: #000;
+}
+
+.mini__menu span {
+	padding: 0 4px 0 7px;
+}
+
+.mini__menu u {
+	text-underline-offset: 1px;
+}
+
+.mini__view {
+	left: 9px;
+	top: 56px;
+	width: 381px;
+	height: 295px;
+	overflow: hidden;
+}
+
+.mini__view img {
+	position: absolute;
+	max-width: none;
+	left: var(--crop-x);
+	top: var(--crop-y);
+	width: var(--crop-w);
+	height: var(--crop-h);
+}
+
+.mini--frigo { --crop-x: -56.18%; --crop-y: -27.03%; --crop-w: 184.31%; --crop-h: 133.9%; }
+.mini--aspirateur { --crop-x: -22.13%; --crop-y: 0%; --crop-w: 137.65%; --crop-h: 100%; }
+.mini--miroir { --crop-x: -22.28%; --crop-y: 0.07%; --crop-w: 180.58%; --crop-h: 131.19%; }
+.mini--reveil { --crop-x: -41.65%; --crop-y: -25.84%; --crop-w: 183.38%; --crop-h: 133.22%; }
+.mini--thermostat { --crop-x: -23.35%; --crop-y: -6.08%; --crop-w: 137.65%; --crop-h: 100%; }
+
+/* Bord enfoncé de la vue */
+.mini__well {
+	left: 9px;
+	top: 56px;
+	width: 359px;
+	height: 273px;
+	box-shadow:
+		inset 1px 1px 0 #707070,
+		inset 2px 2px 0 #000,
+		inset -1px -1px 0 #707070,
+		inset -2px -2px 0 #000;
+}
+
+/* Barres de défilement (décor) */
+
+.mini__arrow {
+	--u: 1.375px;
+	width: 22px;
+	height: 22px;
+}
+
+.mini__arrow--up { left: 368px; top: 56px; }
+.mini__arrow--down { left: 368px; top: 329px; }
+.mini__arrow--left { left: 11px; top: 329px; }
+.mini__arrow--right { left: 344px; top: 329px; }
+
+.mini__track--v {
+	left: 368px;
+	top: 78px;
+	width: 22px;
+	height: 251px;
+	background: #d9d9d9;
+}
+
+.mini__track--h {
+	left: 33px;
+	top: 329px;
+	width: 311px;
+	height: 22px;
+	background: #d9d9d9;
+}
+
+.mini__thumb--v {
+	left: 370px;
+	top: 83px;
+	width: 18px;
+	height: 104px;
+	background: var(--gris);
+	box-shadow:
+		inset 1px 0 0 #fff,
+		inset 2px 0 0 #d9d9d9,
+		inset -1px -1px 0 #000,
+		inset -2px -2px 0 #707070;
+}
+
+.mini__thumb--h {
+	left: 37px;
+	top: 331px;
+	width: 104px;
+	height: 18px;
+	background: var(--gris);
+	box-shadow:
+		inset 0 1px 0 #fff,
+		inset 0 2px 0 #d9d9d9,
+		inset 1px -1px 0 #000,
+		inset 2px -2px 0 #707070;
+}
+
+/* Bouton d’état */
+
+.mini__status {
+	left: 116px;
+	top: 368px;
+	width: 167px;
+	height: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-left: 26px;
+	line-height: normal;
+}
+
+.mini__status img {
+	position: absolute;
+	left: 13px;
+	top: 5px;
+}
+
+/* ---------- Boutons à droite ---------- */
+
+.btn--desktop {
+	--u: 3.184px;
+	left: 1562px;
+	width: 248px;
+	height: 58px;
+	font-size: 16px;
+}
+
+.btn--camera { top: 821px; }
+.btn--plan { top: 896px; }
+
+/* ---------- Barre des tâches ---------- */
+
+.taskbar {
+	position: absolute;
+	left: 0;
+	top: 1027px;
+	width: 1920px;
+	height: 53px;
+	border-top: 3px solid #fff;
+	background: #d9d9d9;
+}
+
+.taskbar > * {
+	position: absolute;
+}
+
+.taskbar__start {
+	--u: 3.184px;
+	--btn-inset: var(--u);
+	left: 0;
+	top: 0;
+	width: 163px;
+	height: 50px;
+	justify-content: flex-start;
+	padding-left: 57px;
+	font-size: 25px;
+	font-weight: 843;
+	font-variation-settings: "MONO" 0, "CASL" 0, "CRSV" 1, "slnt" 0;
+}
+
+.taskbar__start img {
+	position: absolute;
+	left: 16px;
+	top: 10px;
+}
+
+/* Séparateur en relief (gris + blanc) */
+.taskbar__sep {
+	top: 0;
+	width: 4px;
+	height: 50px;
+	border-left: 2px solid #707070;
+	border-right: 2px solid #fff;
+}
+
+/* Poignée des groupes d’icônes */
+.taskbar__grip {
+	top: 5px;
+	width: 9px;
+	height: 40px;
+	border-left: 5px solid #fff;
+	border-right: 2px solid #707070;
+	border-bottom: 2px solid #707070;
+}
+
+.taskbar__icon {
+	object-fit: cover;
+}
+
+.taskbar__clock {
+	left: 1826px;
+	top: 16px;
+	font-size: 20px;
+	line-height: normal;
+	color: #000;
+	white-space: nowrap;
+}

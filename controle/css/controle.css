@@ -1,0 +1,228 @@
+/*
+	Contrôle – écrans des stations (code à quatre chiffres) et dialogues.
+	Maquettes Figma 1920 × 1080. À charger après ../shared/css/win95.css.
+*/
+
+/* Texture de verre posée sur le fond */
+.stage::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: -85px;
+	width: 1920px;
+	height: 1165px;
+	background: url("../assets/texture-glass.png") center / cover no-repeat;
+	mix-blend-mode: hard-light;
+	pointer-events: none;
+}
+
+
+/* ---------- Station ---------- */
+
+.window--station {
+	--u: 4.94px;
+	left: var(--win-x, 255px);
+	top: var(--win-y, 64px);
+	width: var(--win-w, 1530px);
+	height: 935px;
+}
+
+.window--station .titlebar {
+	padding-left: 40px;
+}
+
+.photo {
+	position: absolute;
+	left: 377px;
+	top: 373px;
+	width: 435px;
+	height: 394px;
+	overflow: hidden;
+}
+
+/* Recadrage de l’image, réglé par station (voir plus bas) */
+.photo img {
+	position: absolute;
+	max-width: none;
+	left: var(--crop-x);
+	top: var(--crop-y);
+	width: var(--crop-w);
+	height: var(--crop-h);
+}
+
+.code__title {
+	position: absolute;
+	left: 1086px;
+	top: 294px;
+	font-size: 64px;
+	font-weight: 400;
+	line-height: normal;
+	white-space: nowrap;
+}
+
+.code__digits {
+	position: absolute;
+	left: 1086px;
+	top: 414px;
+	display: flex;
+	gap: 21px;
+}
+
+.digit {
+	display: flex;
+	flex-direction: column;
+	width: 99px;
+}
+
+.digit__btn {
+	--u: 6.188px;
+	position: relative;
+	width: 99px;
+	height: 99px;
+}
+
+.digit__value {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 93px;
+	background: var(--blanc);
+	font-size: 40px;
+	line-height: normal;
+	color: #000;
+}
+
+.code.is-wrong .digit__value { background: #ffb3b3; }
+.code.is-correct .digit__value { background: #b3ffb8; }
+
+.btn--validate {
+	--btn-inset: 9.34px 0 0 9.34px;
+	left: 1141px;
+	top: 794px;
+	width: 353.5px;
+	height: 116px;
+	padding: 9.34px 0 0 9.34px;
+}
+
+/* Réglages par station : fond, position de la fenêtre, recadrage de la photo */
+
+.station--frigo {
+	--background: url("../assets/bg-frigo.png");
+	--win-x: 225px;
+	--win-y: 108px;
+	--win-w: 1525px;
+	--crop-x: -71.39%;
+	--crop-y: -28.38%;
+	--crop-w: 218.79%;
+	--crop-h: 135.87%;
+}
+
+.station--aspirateur {
+	--background: url("../assets/bg-aspirateur.png");
+	--crop-x: -45.25%;
+	--crop-y: -3.97%;
+	--crop-w: 186.86%;
+	--crop-h: 116.04%;
+}
+
+.station--miroir {
+	--background: url("../assets/bg-miroir.png");
+	--crop-x: -29.47%;
+	--crop-y: -0.02%;
+	--crop-w: 186.86%;
+	--crop-h: 116.04%;
+}
+
+.station--reveil {
+	--background: url("../assets/bg-reveil.png");
+	--crop-x: -64.57%;
+	--crop-y: -28.65%;
+	--crop-w: 229.5%;
+	--crop-h: 142.53%;
+}
+
+.station--thermostat {
+	--background: url("../assets/bg-thermostat.png");
+	--crop-x: -61.02%;
+	--crop-y: -12.23%;
+	--crop-w: 200.69%;
+	--crop-h: 124.64%;
+}
+
+/* ---------- Dialogues (réussite / erreur) ---------- */
+
+.dialog {
+	position: absolute;
+	inset: 0;
+	z-index: 10;
+}
+
+.dialog[hidden] {
+	display: none;
+}
+
+.window--dialog {
+	--u: 5.43px;
+	left: 544px;
+	top: 268px;
+	width: 832px;
+	height: 544px;
+}
+
+.window--dialog .titlebar {
+	padding-left: 21.72px;
+}
+
+.dialog__icon {
+	position: absolute;
+	object-fit: cover;
+}
+
+.dialog__text {
+	position: absolute;
+	font-size: 40px;
+	line-height: normal;
+	color: #000;
+	white-space: pre-line;
+}
+
+.dialog--success .dialog__icon {
+	left: 114px;
+	top: 193px;
+	width: 151.72px;
+	height: 151.72px;
+}
+
+.dialog--success .dialog__text {
+	left: 301px;
+	top: 184px;
+}
+
+.dialog--error .dialog__icon {
+	left: 127.7px;
+	top: 202.37px;
+	width: 165.88px;
+	height: 162.67px;
+}
+
+.dialog--error .dialog__text {
+	left: 358.59px;
+	top: 202.37px;
+}
+
+.btn--ok {
+	--u: 5.074px;
+	top: 397px;
+	height: 127px;
+	font-size: 64px;
+}
+
+.dialog--success .btn--ok {
+	left: 223px;
+	width: 385.63px;
+}
+
+.dialog--error .btn--ok {
+	left: 236px;
+	width: 393.97px;
+}

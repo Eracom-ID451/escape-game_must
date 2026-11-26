@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>M.U.S.T – Thermostat</title>
+	<link rel="stylesheet" href="../shared/css/win95.css">
+	<link rel="stylesheet" href="css/controle.css">
+</head>
+<body class="station--thermostat">
+	<main class="stage"></main>
+	<script src="../shared/js/stage.js"></script>
+	<script src="js/station.js"></script>
+	<script>
+		mountStation(document.querySelector(".stage"), {
+			id: "thermostat",
+			title: "Thermostat",
+			solution: "0000", // TODO : code de la station
+			success: "Bravo (N)\nVous avez débloqué\nle thermostat",
+		});
+	</script>
+</body>
+</html>

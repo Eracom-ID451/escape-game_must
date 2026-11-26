@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>M.U.S.T – Frigo</title>
+	<link rel="stylesheet" href="../shared/css/win95.css">
+	<link rel="stylesheet" href="css/frigo.css">
+</head>
+<body class="frigo">
+	<main class="stage relief-window">
+
+		<!-- Barre de titre et horloge, communes à tous les écrans -->
+		<header class="bar"><h1 class="bar__title">M.U.S.T Fridge</h1></header>
+		<time class="clock">10:32AM</time>
+
+		<!-- Accueil -->
+		<div class="accueil">
+			<nav class="tiles">
+				<button type="button" class="tile tile--frigo" data-open="frigo">
+					<span class="tile__label">Frigo</span>
+					<img src="assets/tile-frigo.png" alt="">
+				</button>
+				<button type="button" class="tile tile--notes" data-open="notes">
+					<span class="tile__label">Notes</span>
+					<img src="assets/tile-notes.png" alt="">
+				</button>
+				<button type="button" class="tile tile--calendrier" data-open="calendrier">
+					<span class="tile__label">Calendrier</span>
+					<img src="assets/tile-calendrier.png" alt="">
+				</button>
+				<button type="button" class="tile tile--parametres" data-open="reglage">
+					<span class="tile__label">Paramètres</span>
+					<span class="tile__crop"><img src="assets/tile-parametres.png" alt=""></span>
+				</button>
+			</nav>
+			<span class="badge">1</span>
+			<button type="button" class="corner relief-button" data-power aria-label="Éteindre"><img class="corner__power" src="assets/btn-power.png" alt=""></button>
+		</div>
+
+		<!-- Applications -->
+
+		<section class="app" id="frigo" hidden>
+			<div class="shelf" style="left: 30px; top: 266px"><img src="assets/shelf.svg" alt=""><img src="assets/shelf-faded.svg" alt=""></div>
+			<div class="shelf" style="left: 30px; top: 490px"><img src="assets/shelf.svg" alt=""><img src="assets/shelf-faded.svg" alt=""></div>
+			<div class="shelf" style="left: 34px; top: 702px"><img src="assets/shelf.svg" alt=""><img src="assets/shelf-faded.svg" alt=""></div>
+			<div class="shelf" style="left: 38px; top: 914px"><img src="assets/shelf.svg" alt=""><img src="assets/shelf-faded.svg" alt=""></div>
+			<div class="foods"></div>
+
+			<!-- Aperçu d’un aliment, par-dessus les étagères estompées -->
+			<div class="preview" hidden>
+				<button type="button" class="preview__back" data-back aria-label="Retour"><img src="assets/btn-back.png" alt=""></button>
+				<h2 class="preview__title"></h2>
+				<div class="preview__image"><img src="" alt=""></div>
+				<button type="button" class="btn-infos relief-arrow" data-infos>Plus d’infos</button>
+			</div>
+
+			<!-- Fiche d’un aliment -->
+			<section class="window info relief-window" hidden>
+				<header class="info__bar">
+					<h2 class="info__title"></h2>
+					<button type="button" class="info__close relief-button" data-close-info aria-label="Fermer"><img src="assets/info-close.svg" alt=""></button>
+				</header>
+				<p class="info__date"></p>
+				<p class="info__frais">À conserver au frais</p>
+				<p class="info__prix"></p>
+				<p class="info__quantite"></p>
+				<img class="info__nutriscore" src="" alt="">
+			</section>
+		</section>
+
+		<section class="app" id="notes" hidden>
+			<h2 class="notes__title">Notes</h2>
+			<div class="notes__text">
+				<p>Liste de courses:</p>
+				<ul>
+					<li>Biscuit</li>
+					<li>Cacahuète</li>
+					<li>Pommes de terre</li>
+					<li>beurre</li>
+					<li>Jus d’orange</li>
+				</ul>
+				<p class="notes__gap">À noter:</p>
+				<p>Faire un plat pour ma chérie avec des protéines, des légumes, des féculents et un dessert</p>
+				<p>Et ne pas oublier qu’elle ne mange que du nutriscore A pour son régime.</p>
+			</div>
+		</section>
+
+		<section class="app" id="calendrier" hidden>
+			<p class="calendar__month">Février</p>
+			<table class="calendar">
+				<thead>
+					<tr><th>L</th><th>M</th><th>M</th><th>J</th><th>V</th><th>S</th><th>D</th></tr>
+				</thead>
+				<tbody>
+					<tr><td class="out">31</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+					<tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
+					<tr><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td></tr>
+					<tr><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td></tr>
+					<tr><td>28</td><td>29</td><td>30</td><td>31</td><td class="out">1</td><td class="out">2</td><td class="out">3</td></tr>
+					<tr class="out"><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+					<tr class="out"><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td></tr>
+					<tr class="out"><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td></tr>
+				</tbody>
+			</table>
+			<span class="pager pager--prev" aria-hidden="true"></span>
+			<span class="pager pager--next" aria-hidden="true"></span>
+		</section>
+
+		<section class="app" id="reglage" hidden>
+			<div class="group" style="left: 71px; top: 313px; width: 288px; height: 235px">
+				<span class="group__label">Température:</span>
+			</div>
+			<div class="slider">
+				<p class="slider__scale"><span>-1°</span><span>5°</span></p>
+				<img src="assets/slider.svg" alt="">
+			</div>
+			<div class="group" style="left: 412px; top: 313px; width: 288px; height: 235px">
+				<span class="group__label">Recettes:</span>
+				<img class="group__icon" src="assets/icon-recettes.png" style="left: 45px; top: 27px; width: 195px; height: 195px" alt="">
+			</div>
+			<div class="group" style="left: 73px; top: 590px; width: 286px; height: 235px">
+				<span class="group__label">Alertes:</span>
+				<img class="group__icon" src="assets/icon-alertes.png" style="left: 55px; top: 33px; width: 158.45px; height: 158.45px" alt="">
+			</div>
+			<div class="group" style="left: 412px; top: 590px; width: 286px; height: 235px">
+				<span class="group__label">Infos:</span>
+				<img class="group__icon" src="assets/icon-infos.png" style="left: 45px; top: 19px; width: 195px; height: 195px" alt="">
+			</div>
+			<button type="button" class="help" data-open="must-aide" aria-label="Aide"><img src="assets/icon-aide.png" alt=""></button>
+		</section>
+
+		<!-- Bouton de fermeture des applications (retour à l’accueil) -->
+		<button type="button" class="corner corner--close relief-button" data-home aria-label="Fermer"><img class="corner__close" src="assets/btn-close.svg" alt=""></button>
+
+		<!-- Message M.U.S.T : au démarrage, puis via l’aide des réglages -->
+
+		<div class="dialog" id="must">
+			<section class="window must must--accueil relief-window" role="alertdialog" aria-labelledby="must-title">
+				<header class="titlebar">
+					<h2 class="titlebar__title" id="must-title">M.U.S.T</h2>
+					<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/must-close-l.svg" alt=""></button>
+				</header>
+				<div class="must__text">
+					<p>Vous avez un nouveau message:</p>
+					<p>Salut chéri, prépare moi un plat avec des protéines, des légumes, des féculents et un dessert stp.</p>
+					<p>PS: n’oublie pas que je ne mange que du nutriscore A</p>
+				</div>
+			</section>
+		</div>
+
+		<div class="dialog" id="must-aide" hidden>
+			<section class="window must must--aide relief-window" role="alertdialog" aria-labelledby="must-aide-title">
+				<header class="titlebar">
+					<h2 class="titlebar__title" id="must-aide-title">M.U.S.T</h2>
+					<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/must-close-m.svg" alt=""></button>
+				</header>
+				<div class="must__text">
+					<p>Vous avez un nouveau message:</p>
+					<p>Salut chéri, prépare moi un plat avec des protéines, des légumes, des féculents et un dessert stp.</p>
+					<p>PS: n’oublie pas que je ne mange que du nutriscore A</p>
+				</div>
+			</section>
+		</div>
+
+		<!-- Écran éteint -->
+		<div class="off" id="eteint" hidden>
+			<button type="button" class="corner relief-button" data-power aria-label="Allumer"><img class="corner__power" src="assets/btn-power.png" alt=""></button>
+		</div>
+
+	</main>
+	<script src="../shared/js/stage.js"></script>
+	<script src="js/frigo.js"></script>
+</body>
+</html>

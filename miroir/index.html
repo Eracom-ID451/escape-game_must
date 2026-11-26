@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>M.U.S.T – Miroir</title>
+	<link rel="stylesheet" href="../shared/css/win95.css">
+	<link rel="stylesheet" href="css/miroir.css">
+</head>
+<body class="miroir">
+	<main class="stage">
+
+		<!-- Bureau -->
+		<h1 class="desk-title">Miroir</h1>
+		<time class="desk-clock">12:30</time>
+		<button type="button" class="btn btn--must" data-open="intro">M.U.S.T</button>
+
+		<div class="icons" aria-hidden="true"><span class="icons__cell"></span><span class="icons__cell"></span><span class="icons__cell"></span><span class="icons__cell"></span><span class="icons__cell"></span><span class="icons__cell"></span><span class="icons__cell"></span><span class="icons__cell"></span><span class="icons__cell"></span><span class="icons__cell"></span><span class="icons__cell"></span><span class="icons__cell"></span></div>
+		<button type="button" class="icon" data-open="erreur" style="--l: 27px; --t: 124px; --w: 39px; --h: 38px" aria-label="Lecteur multimédia"><img src="assets/icon-media.png" style="left: -25.45%; top: -23.68%; width: 151.03%; height: 152.63%" alt=""></button>
+		<button type="button" class="icon" data-open="maps" style="--l: 93px; --t: 120px; --w: 45px; --h: 44px" aria-label="Maps"><img src="assets/icon-maps.png" style="left: -17.78%; top: -11.75%; width: 133.33%; height: 123.5%" alt=""></button>
+		<button type="button" class="icon" data-open="erreur" style="--l: 26px; --t: 181px; --w: 46px; --h: 50px" aria-label="Paramètres"><img src="assets/icon-settings.png" style="left: -1.09%; top: 0%; width: 102.19%; height: 100%" alt=""></button>
+		<button type="button" class="icon icon--weather" data-open="meteo" style="--l: 86px; --t: 186px; --w: 60px; --h: 39px" aria-label="Météo"><img src="assets/icon-weather.png" style="inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: bottom" alt=""></button>
+		<button type="button" class="icon" data-open="mail" style="--l: 25px; --t: 248px; --w: 48px; --h: 53px" aria-label="Boîte mail"><img src="assets/icon-mail.png" style="left: -20.83%; top: -8.58%; width: 137.5%; height: 117.17%" alt=""></button>
+		<button type="button" class="icon" data-open="erreur" style="--l: 91px; --t: 252px; --w: 55px; --h: 45px" aria-label="Caméra"><img src="assets/icon-camera.png" style="left: 0%; top: -9.43%; width: 101.54%; height: 117.23%" alt=""></button>
+		<button type="button" class="icon" data-open="calendrier" style="--l: 21px; --t: 316px; --w: 54px; --h: 49px" aria-label="Calendrier"><img src="assets/icon-calendar.png" style="left: -11.11%; top: -11.33%; width: 122.22%; height: 126.73%" alt=""></button>
+		<button type="button" class="icon" data-open="erreur" style="--l: 87px; --t: 315px; --w: 59px; --h: 53px" aria-label="Musique"><img src="assets/icon-music.png" style="inset: 0; width: 100%; height: 100%; object-fit: contain" alt=""></button>
+		<button type="button" class="icon" data-open="erreur" style="--l: 26px; --t: 386px; --w: 44px; --h: 42px" aria-label="Diaporama"><img src="assets/icon-slideshow.png" style="left: -16.93%; top: -19.05%; width: 133.87%; height: 138.1%" alt=""></button>
+		<button type="button" class="icon" data-open="cartes" style="--l: 93px; --t: 383px; --w: 52px; --h: 45px" aria-label="Jeu de carte"><img src="assets/icon-cards.png" style="left: -3.64%; top: -11.11%; width: 109.31%; height: 128.89%" alt=""></button>
+		<button type="button" class="icon" data-open="internet" style="--l: 28px; --t: 456px; --w: 39px; --h: 44px" aria-label="Internet Explorer"><img src="assets/icon-internet.png" style="left: -24.23%; top: -25%; width: 151.03%; height: 145.45%" alt=""></button>
+		<button type="button" class="icon" data-open="erreur" style="--l: 93px; --t: 458px; --w: 46px; --h: 40px" aria-label="MSN"><img src="assets/icon-msn.png" style="left: -19.41%; top: -32.5%; width: 143.16%; height: 160%" alt=""></button>
+		<span class="icon__badge">4</span>
+
+		<div class="desk-panel"></div>
+		<img class="desk-picture" src="assets/desktop.svg" alt="">
+
+		<!-- Applications -->
+
+		<section class="app" id="maps" hidden>
+			<header class="titlebar">
+				<h2 class="titlebar__title">Maps</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-l-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-l-close.svg" alt=""></button>
+			</header>
+			<div class="map"><img src="assets/map.png" alt="Carte"></div>
+		</section>
+
+		<section class="app app--meteo" id="meteo" hidden>
+			<header class="titlebar">
+				<h2 class="titlebar__title">Météo</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-m-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-m-close.svg" alt=""></button>
+			</header>
+			<section class="window city relief-window" style="left: 126px; top: 71px">
+				<header class="titlebar"><h3 class="titlebar__title">São Paulo</h3></header>
+				<table>
+					<tr><td>Lundi</td><td>17° / 29°</td></tr>
+					<tr><td>Mardi</td><td>19° / 29°</td></tr>
+					<tr><td>Mercredi</td><td>20° / 28°</td></tr>
+					<tr><td>Jeudi</td><td>20° / 29°</td></tr>
+					<tr><td>Vendredi</td><td>19° / 27°</td></tr>
+					<tr><td>Samedi</td><td>18° / 27°</td></tr>
+					<tr><td>Dimanche</td><td>17° / 26°</td></tr>
+				</table>
+			</section>
+			<section class="window city relief-window" style="left: 548px; top: 71px">
+				<header class="titlebar"><h3 class="titlebar__title">Tokyo</h3></header>
+				<table>
+					<tr><td>Lundi</td><td>5° / 16°</td></tr>
+					<tr><td>Mardi</td><td>2° / 14°</td></tr>
+					<tr><td>Mercredi</td><td>6° / 15°</td></tr>
+					<tr><td>Jeudi</td><td>3° / 11°</td></tr>
+					<tr><td>Vendredi</td><td>3° / 13°</td></tr>
+					<tr><td>Samedi</td><td>4° / 15°</td></tr>
+					<tr><td>Dimanche</td><td>8° / 19°</td></tr>
+				</table>
+			</section>
+			<section class="window city relief-window" style="left: 128px; top: 410px">
+				<header class="titlebar"><h3 class="titlebar__title">Paris</h3></header>
+				<table>
+					<tr><td>Lundi</td><td>06° / 18°</td></tr>
+					<tr><td>Mardi</td><td>08° / 15°</td></tr>
+					<tr><td>Mercredi</td><td>10° / 20°</td></tr>
+					<tr><td>Jeudi</td><td>11° / 18°</td></tr>
+					<tr><td>Vendredi</td><td>09° / 16°</td></tr>
+					<tr><td>Samedi</td><td>12° / 21°</td></tr>
+					<tr><td>Dimanche</td><td>08° / 14°</td></tr>
+				</table>
+			</section>
+			<section class="window city relief-window" style="left: 548px; top: 410px">
+				<header class="titlebar"><h3 class="titlebar__title">Los Angeles</h3></header>
+				<table>
+					<tr><td>Lundi</td><td>12° / 19°</td></tr>
+					<tr><td>Mardi</td><td>11° / 16°</td></tr>
+					<tr><td>Mercredi</td><td>14° / 21°</td></tr>
+					<tr><td>Jeudi</td><td>17° / 25°</td></tr>
+					<tr><td>Vendredi</td><td>32° / 37°</td></tr>
+					<tr><td>Samedi</td><td>19° / 25°</td></tr>
+					<tr><td>Dimanche</td><td>18° / 25°</td></tr>
+				</table>
+			</section>
+		</section>
+
+		<section class="app" id="mail" hidden>
+			<header class="titlebar">
+				<h2 class="titlebar__title">Boîte Mail</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-l-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-l-close.svg" alt=""></button>
+			</header>
+			<article class="mail" style="top: 119px">
+				<header class="mail__head"><span>sarah.delafontaine@gmail.com</span><span class="mail__date">reçu mardi 23h02</span></header>
+				<div class="mail__body">
+					<span class="mail__subject">Retrouvaille:</span><span>ca va être trop bien j’ai hât...</span>
+					<button type="button" class="btn btn--read" data-open="mail-4">Lire</button>
+				</div>
+			</article>
+			<article class="mail" style="top: 269px">
+				<header class="mail__head"><span>sarah.delafontaine@gmail.com</span><span class="mail__date">reçu lundi 10h32</span></header>
+				<div class="mail__body">
+					<span class="mail__subject">Encore 3 jours:</span><span>plus que 3 jours et on se...</span>
+					<button type="button" class="btn btn--read" data-open="mail-2">Lire</button>
+				</div>
+			</article>
+			<article class="mail" style="top: 419px">
+				<header class="mail__head"><span>michael.sirups@gmail.com</span><span class="mail__date">reçu lundi 18h58</span></header>
+				<div class="mail__body">
+					<span class="mail__subject">Alors tu pars ?:</span><span>yo mec finalement tu...</span>
+					<button type="button" class="btn btn--read" data-open="mail-3">Lire</button>
+				</div>
+			</article>
+			<article class="mail" style="top: 569px">
+				<header class="mail__head"><span>sarah.delafontaine@gmail.com</span><span class="mail__date">reçu dimanche 18h16</span></header>
+				<div class="mail__body">
+					<span class="mail__subject">Température:</span><span>Heyyy, ça va ? je suis entrain...</span>
+					<button type="button" class="btn btn--read" data-open="mail-1">Lire</button>
+				</div>
+			</article>
+		</section>
+
+		<section class="app" id="mail-1" hidden>
+			<header class="titlebar">
+				<h2 class="titlebar__title">Sarah</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-l-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-l-close.svg" alt=""></button>
+			</header>
+			<p class="message__from">sarah.delafontaine@gmail.com</p>
+			<p class="message__text">Heyyy, ça va ? je suis entrain de faire mon sac je sais pas quelle température il fera est ce que tu pourrais me le dire ?</p>
+			<p class="message__date">reçu dimanche 18h16</p>
+		</section>
+		<section class="app" id="mail-2" hidden>
+			<header class="titlebar">
+				<h2 class="titlebar__title">Sarah</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-l-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-l-close.svg" alt=""></button>
+			</header>
+			<p class="message__from">sarah.delafontaine@gmail.com</p>
+			<p class="message__text">Plus que 3 jours et on se retrouve j’ai trop hâte de partir avec toi !</p>
+			<p class="message__date">reçu lundi 10h32</p>
+		</section>
+		<section class="app" id="mail-3" hidden>
+			<header class="titlebar">
+				<h2 class="titlebar__title">michael</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-l-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-l-close.svg" alt=""></button>
+			</header>
+			<p class="message__from">michael.sirups@gmail.com</p>
+			<p class="message__text">Yo mec finalement tu pars à los angeles avec sarah c’est trop cool !</p>
+			<p class="message__date">reçu lundi 18h58</p>
+		</section>
+		<section class="app" id="mail-4" hidden>
+			<header class="titlebar">
+				<h2 class="titlebar__title">Sarah</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-l-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-l-close.svg" alt=""></button>
+			</header>
+			<p class="message__from">sarah.delafontaine@gmail.com</p>
+			<p class="message__text">Ça va être trop bien j’ai hâte qu’on se voit dans 2 jours !</p>
+			<p class="message__date">reçu mardi 23h02</p>
+		</section>
+
+		<section class="app app--gray" id="calendrier" hidden>
+			<header class="titlebar">
+				<h2 class="titlebar__title">Calendrier</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-l-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-l-close.svg" alt=""></button>
+			</header>
+			<p class="calendar__month">Mai</p>
+			<table class="calendar">
+				<thead>
+					<tr><th>L</th><th>M</th><th>M</th><th>J</th><th>V</th><th>S</th><th>D</th></tr>
+				</thead>
+				<tbody>
+					<tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+					<tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
+					<tr><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td></tr>
+					<tr><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td></tr>
+					<tr><td>28</td><td>29</td><td>30</td><td>31</td><td></td><td></td><td></td></tr>
+				</tbody>
+			</table>
+		</section>
+
+		<section class="app app--gray" id="cartes" hidden>
+			<header class="titlebar">
+				<h2 class="titlebar__title">Jeu de carte</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-l-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-l-close.svg" alt=""></button>
+			</header>
+			<img class="cards" src="assets/cards.png" alt="">
+		</section>
+
+		<section class="app app--gray" id="internet" hidden>
+			<header class="titlebar">
+				<h2 class="titlebar__title">Internet Explorer</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-l-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-l-close.svg" alt=""></button>
+			</header>
+			<img class="internet__frame" src="assets/internet-frame.svg" alt="">
+			<div class="internet__icon"><img src="assets/icon-internet.png" alt=""></div>
+			<p class="internet__label">Internet</p>
+			<img class="internet__cursor" src="assets/cursor-wait.png" width="15" height="24" alt="">
+		</section>
+
+		<!-- Dialogues -->
+
+		<div class="dialog" id="intro">
+			<section class="window window--intro relief-window" role="alertdialog" aria-labelledby="intro-title">
+				<header class="titlebar">
+				<h2 class="titlebar__title" id="intro-title">M.U.S.T</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-xl-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-xl-close.svg" alt=""></button>
+			</header>
+				<div class="intro__text">
+					<p>Vous préparez un week-end en amoureux avec votre copine Sarah</p>
+					<p>Regardez la météo de la destination</p>
+					<p>le code à 4 chiffres y est caché</p>
+				</div>
+				<button type="button" class="btn btn--ok" data-close>OK</button>
+			</section>
+		</div>
+
+		<div class="dialog" id="erreur" hidden>
+			<section class="window window--error relief-window" role="alertdialog" aria-label="Accès interdit">
+				<header class="titlebar">
+				<h2 class="titlebar__title"></h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-s-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-s-close.svg" alt=""></button>
+			</header>
+				<img class="dialog__icon" src="assets/icon-error.png" alt="">
+				<p class="dialog__text">Accès interdit</p>
+				<button type="button" class="btn btn--ok" data-close>OK</button>
+			</section>
+		</div>
+
+	</main>
+	<script src="../shared/js/stage.js"></script>
+	<script src="js/miroir.js"></script>
+</body>
+</html>

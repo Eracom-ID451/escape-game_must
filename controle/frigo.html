@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>M.U.S.T – Frigo</title>
+	<link rel="stylesheet" href="../shared/css/win95.css">
+	<link rel="stylesheet" href="css/controle.css">
+</head>
+<body class="station--frigo">
+	<main class="stage"></main>
+	<script src="../shared/js/stage.js"></script>
+	<script src="js/station.js"></script>
+	<script>
+		mountStation(document.querySelector(".stage"), {
+			id: "frigo",
+			title: "Frigo",
+			solution: "0000", // À confirmer : la maquette Figma Frigo ne donne pas le code. Plats nutriscore A : jambon 7.-, brocoli 2.-, riz 3.-, pomme 1.- → probablement 7231 (prix dans l’ordre protéine, légume, féculent, dessert)
+			success: "Bravo (H)\nVous avez débloqué\nle frigo",
+		});
+	</script>
+</body>
+</html>

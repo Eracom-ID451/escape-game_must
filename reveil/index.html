@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>M.U.S.T – Réveil</title>
+	<link rel="stylesheet" href="../shared/css/win95.css">
+	<link rel="stylesheet" href="css/reveil.css">
+</head>
+<body class="reveil">
+	<main class="stage">
+
+		<!--
+			Les chiffres à sept segments sont des <svg class="digit"> vides :
+			js/reveil.js y dessine les segments à la taille donnée par width / height.
+		-->
+
+		<!-- Réveil : écran principal -->
+		<section class="screen" id="accueil">
+
+			<!-- Heure -->
+			<div class="clock">
+				<svg class="digit" width="94" height="165" style="left: 26px; top: 112px"></svg>
+				<svg class="digit" width="92" height="165" style="left: 139px; top: 112px"></svg>
+				<span class="diamond diamond--clock" style="left: 255.7px; top: 144px"></span>
+				<span class="diamond diamond--clock" style="left: 254px; top: 238px"></span>
+				<svg class="digit" width="93" height="165" style="left: 302px; top: 112px"></svg>
+				<svg class="digit" width="94" height="165" style="left: 418px; top: 112px"></svg>
+			</div>
+
+			<!-- Date (jour / mois) -->
+			<div class="jm">
+				<p class="label" style="left: 659px; top: 58px">J/M</p>
+				<svg class="digit" width="16" height="28" style="left: 615px; top: 99px"></svg>
+				<svg class="digit" width="16" height="28" style="left: 636px; top: 99px"></svg>
+				<span class="diamond diamond--small" style="left: 667.2px; top: 102.2px"></span>
+				<span class="diamond diamond--small" style="left: 667.2px; top: 119.2px"></span>
+				<svg class="digit" width="16" height="28" style="left: 687px; top: 99px"></svg>
+				<svg class="digit" width="17" height="28" style="left: 708px; top: 99px"></svg>
+			</div>
+			<button type="button" class="enter" id="enter-jm" style="left: 633px; top: 151px" data-open="code">ENTER</button>
+
+			<p class="label" style="left: 619px; top: 258px"><span class="label--temp">température</span><span class="label--radio"> / radio</span></p>
+
+			<!-- Température -->
+			<div class="temp">
+				<svg class="digit" width="20" height="35" style="left: 547px; top: 289px"></svg>
+				<svg class="digit" width="20" height="35" style="left: 571px; top: 289px"></svg>
+				<svg class="digit digit--half digit--bare" width="13" height="14" style="left: 598px; top: 289px" data-value="c"></svg>
+				<span class="diamond diamond--dot" style="left: 595.6px; top: 317.7px"></span>
+			</div>
+
+			<span class="diamond diamond--small separator" style="left: 623.2px; top: 294.2px"></span>
+			<span class="diamond diamond--small separator" style="left: 623.2px; top: 311.2px"></span>
+
+			<!-- Radio -->
+			<div class="freq">
+				<svg class="digit" width="19" height="32" style="left: 639px; top: 289px"></svg>
+				<svg class="digit" width="19" height="32" style="left: 662px; top: 289px"></svg>
+				<svg class="digit" width="19" height="32" style="left: 685px; top: 289px"></svg>
+				<span class="diamond diamond--dot" style="left: 708.5px; top: 315.4px"></span>
+				<svg class="digit" width="20" height="32" style="left: 718px; top: 289px"></svg>
+				<p class="mhz">MHZ</p>
+			</div>
+
+			<button type="button" class="enter" id="enter-temp" style="left: 541px; top: 342px" data-open="temperature">ENTER</button>
+			<button type="button" class="enter" id="enter-radio" style="left: 656px; top: 342px" data-open="radio">ENTER</button>
+			<button type="button" class="enter" id="reset" style="left: 227px; top: 302px" hidden>Reset</button>
+		</section>
+
+		<!-- Étape 1 : régler la date en touchant les chiffres -->
+		<section class="screen" id="code" hidden>
+			<button type="button" class="square square--close" style="left: 30px; top: 30px" data-open="accueil" aria-label="Fermer"></button>
+			<button type="button" class="digit-btn" style="left: 177px; top: 112px" aria-label="Chiffre 1"><svg class="digit" width="93" height="165"></svg></button>
+			<button type="button" class="digit-btn" style="left: 291px; top: 112px" aria-label="Chiffre 2"><svg class="digit" width="93" height="165"></svg></button>
+			<span class="diamond diamond--clock" style="left: 409.3px; top: 143.8px"></span>
+			<span class="diamond diamond--clock" style="left: 409.3px; top: 238.3px"></span>
+			<button type="button" class="digit-btn" style="left: 454px; top: 112px" aria-label="Chiffre 3"><svg class="digit" width="93" height="165"></svg></button>
+			<button type="button" class="digit-btn" style="left: 570px; top: 112px" aria-label="Chiffre 4"><svg class="digit" width="93" height="165"></svg></button>
+		</section>
+
+		<!-- Étape 2 : la température défile -->
+		<section class="screen" id="temperature" hidden>
+			<button type="button" class="square square--close" style="left: 30px; top: 30px" data-open="accueil" aria-label="Fermer"></button>
+			<button type="button" class="square square--keypad" style="left: 760px; top: 30px" data-keypad="temperature" aria-label="Clavier"><img src="assets/calculator.png" alt=""></button>
+			<div class="thermo">
+				<svg class="digit" width="115" height="202" style="left: 252px; top: 88px"></svg>
+				<svg class="digit" width="116" height="202" style="left: 396px; top: 88px"></svg>
+				<svg class="digit digit--half" width="91" height="91" style="left: 553px; top: 88px" data-value="c"></svg>
+				<span class="diamond diamond--big" style="left: 543.8px; top: 252.8px"></span>
+			</div>
+		</section>
+
+		<!-- Étape 3 : les stations de radio -->
+		<section class="screen" id="radio" hidden>
+			<button type="button" class="square square--close" style="left: 30px; top: 30px" data-open="accueil" aria-label="Fermer"></button>
+			<button type="button" class="square square--keypad" style="left: 760px; top: 30px" data-keypad="radio" aria-label="Clavier"><img src="assets/calculator.png" alt=""></button>
+			<div class="station">
+				<p class="station__name">Radio FM</p>
+				<svg class="digit" width="27" height="45" style="left: 377px; top: 33px"></svg>
+				<svg class="digit" width="27" height="45" style="left: 408px; top: 33px"></svg>
+				<svg class="digit" width="28" height="45" style="left: 439px; top: 33px"></svg>
+				<span class="diamond diamond--freq" style="left: 471.4px; top: 69.3px"></span>
+				<svg class="digit" width="28" height="45" style="left: 484px; top: 33px"></svg>
+				<p class="station__mhz">MHZ</p>
+			</div>
+			<button type="button" class="square square--arrow" id="radio-prev" style="left: 339px; top: 292px" aria-label="Station précédente"><svg class="pixel-arrow pixel-arrow--left" viewBox="0 0 13 23" aria-hidden="true"><rect x="0" y="0" width="3" height="23"/><rect x="3" y="3" width="3" height="17"/><rect x="6" y="5" width="4" height="13"/><rect x="10" y="9" width="3" height="5"/></svg></button>
+			<button type="button" class="square square--arrow" id="radio-next" style="left: 455px; top: 292px" aria-label="Station suivante"><svg class="pixel-arrow" viewBox="0 0 13 23" aria-hidden="true"><rect x="0" y="0" width="3" height="23"/><rect x="3" y="3" width="3" height="17"/><rect x="6" y="5" width="4" height="13"/><rect x="10" y="9" width="3" height="5"/></svg></button>
+		</section>
+
+		<!-- Clavier (température et radio) -->
+		<section class="screen" id="clavier" hidden>
+			<button type="button" class="square square--close" id="clavier-close" style="left: 38px; top: 31px" aria-label="Fermer"></button>
+			<output class="keypad__screen" id="keypad-screen">_</output>
+			<div class="keypad">
+				<button type="button" class="square key">1</button>
+				<button type="button" class="square key">2</button>
+				<button type="button" class="square key">3</button>
+				<button type="button" class="square key">4</button>
+				<button type="button" class="square key">5</button>
+				<button type="button" class="square key">6</button>
+				<button type="button" class="square key">7</button>
+				<button type="button" class="square key">8</button>
+				<button type="button" class="square key">9</button>
+				<button type="button" class="square key" data-key="effacer" aria-label="Effacer">x</button>
+			</div>
+			<button type="button" class="keypad__ok" id="keypad-ok">valider</button>
+		</section>
+
+	</main>
+	<script src="../shared/js/stage.js"></script>
+	<script src="js/reveil.js"></script>
+</body>
+</html>

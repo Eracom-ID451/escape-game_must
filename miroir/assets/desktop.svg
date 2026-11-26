@@ -1,0 +1,21 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="828" height="591" viewBox="0 0 828 591" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Frame 6">
+<rect width="828" height="591" fill="white"/>
+<path id="Vector 10" d="M474.832 215.266H474.68" stroke-width="2" stroke-linecap="round" stroke="black"/>
+<path id="Vector 11" d="M474.68 215.266V220.028" stroke-width="2" stroke-linecap="round" stroke="white"/>
+<line id="Line 12" opacity="0.7" x1="2.5" y1="5" x2="2.5" y2="591" stroke-width="5" stroke="black"/>
+<g id="Frame 14" clip-path="url(#clip0_0_87)">
+<rect width="823" height="586" transform="translate(5 5)" fill="white"/>
+<rect id="Rectangle 118" x="-29" y="5" width="886" height="586" fill="#00DDFF"/>
+<rect id="Rectangle 119" x="-54" y="182.871" width="532.732" height="41" transform="rotate(-25.0866 -54 182.871)" fill="white"/>
+<rect id="Rectangle 121" x="457" y="590.871" width="532.732" height="41" transform="rotate(-25.0866 457 590.871)" fill="white"/>
+<rect id="Rectangle 120" x="-91" y="329.871" width="980.954" height="127.825" transform="rotate(-25.0866 -91 329.871)" fill="white"/>
+<line id="Line 8" x1="826.5" y1="591" x2="826.5" y2="-3" stroke-width="3" stroke="#343434"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_87">
+<rect width="823" height="586" fill="white" transform="translate(5 5)"/>
+</clipPath>
+</defs>
+</svg>

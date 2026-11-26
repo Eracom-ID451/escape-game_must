@@ -1,0 +1,248 @@
+/*
+	M.U.S.T – styles communs à toutes les stations : police, scène,
+	relief « Windows 95 », fenêtres et boutons.
+	La scène garde les dimensions de la maquette (--stage-w × --stage-h) et est
+	mise à l’échelle de la fenêtre par shared/js/stage.js. Les positions sont en px de maquette.
+*/
+
+@font-face {
+	font-family: "Recursive";
+	src: url("../fonts/recursive-latin-full-normal.woff2") format("woff2-variations");
+	font-weight: 300 1000;
+	font-style: oblique 0deg 15deg;
+	font-display: block;
+}
+
+:root {
+	--blanc: #fffffd;
+	--noir: #0a0a0a;
+	--gris: #bfbfbf;
+	--gris-clair: #dbdbdb;
+	--gris-fonce: #808080;
+	--titre: linear-gradient(to right, #00007b, #1085d2);
+
+	--mono: "MONO" 1, "CASL" 0, "CRSV" 0.5, "slnt" 0;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: #000;
+}
+
+body {
+	font-family: "Recursive", monospace;
+	font-weight: 400;
+	font-variation-settings: var(--mono);
+	color: var(--noir);
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+}
+
+button {
+	outline: none; /* écran tactile : pas d’anneau de focus */
+	font: inherit;
+	color: inherit;
+	background: none;
+	border: 0;
+	cursor: pointer;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+img {
+	display: block;
+}
+
+/* ---------- Scène ---------- */
+
+.stage {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: var(--stage-w, 1920px);
+	height: var(--stage-h, 1080px);
+	transform: translate(-50%, -50%) scale(var(--scale, 1));
+	overflow: hidden;
+	background: var(--background) center / cover no-repeat;
+}
+
+.logo {
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	padding: 12px;
+	font-size: 65px;
+	font-weight: 843;
+	line-height: normal;
+	font-variation-settings: "MONO" 0, "CASL" 0, "CRSV" 1, "slnt" 0;
+	color: var(--blanc);
+	white-space: nowrap;
+}
+
+/* ---------- Relief « Windows 95 » ----------
+	--u : épaisseur d’une ligne du relief (4.94px dans les grandes fenêtres,
+	5.43px dans les dialogues, 1px dans les petites fenêtres du menu…).
+*/
+
+.relief-window {
+	background: var(--gris);
+	box-shadow:
+		inset calc(-1 * var(--u)) calc(-1 * var(--u)) 0 #000,
+		inset var(--u) var(--u) 0 var(--gris-clair),
+		inset calc(-2 * var(--u)) calc(-2 * var(--u)) 0 var(--gris-fonce),
+		inset calc(2 * var(--u)) calc(2 * var(--u)) 0 #fff;
+}
+
+.relief-button {
+	background: var(--gris);
+	box-shadow:
+		inset calc(-1 * var(--u)) calc(-1 * var(--u)) 0 #000,
+		inset var(--u) var(--u) 0 #fff,
+		inset calc(-2 * var(--u)) calc(-2 * var(--u)) 0 var(--gris-fonce),
+		inset calc(2 * var(--u)) calc(2 * var(--u)) 0 var(--gris-clair);
+}
+
+.relief-button-pressed {
+	background: var(--gris);
+	box-shadow:
+		inset var(--u) var(--u) 0 #000,
+		inset calc(-1 * var(--u)) calc(-1 * var(--u)) 0 #fff,
+		inset calc(2 * var(--u)) calc(2 * var(--u)) 0 var(--gris-fonce),
+		inset calc(-2 * var(--u)) calc(-2 * var(--u)) 0 var(--gris-clair);
+}
+
+/* Bouton à flèche (composant « Close » de la maquette) */
+.relief-arrow {
+	background: #c3c3c3;
+	box-shadow:
+		inset calc(-1 * var(--u)) calc(-1 * var(--u)) 0 #262626,
+		inset var(--u) var(--u) 0 #f0f0f0,
+		inset calc(-2 * var(--u)) calc(-2 * var(--u)) 0 #7e7e7e;
+}
+
+.relief-arrow:active {
+	box-shadow:
+		inset var(--u) var(--u) 0 #262626,
+		inset calc(-1 * var(--u)) calc(-1 * var(--u)) 0 #f0f0f0,
+		inset calc(2 * var(--u)) calc(2 * var(--u)) 0 #7e7e7e;
+}
+
+.arrow {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	fill: #000;
+}
+
+.arrow--up { transform: rotate(-90deg); }
+.arrow--down { transform: rotate(90deg); }
+.arrow--left { transform: rotate(180deg); }
+
+/* ---------- Fenêtre (grande fenêtre et dialogues) ---------- */
+
+.window {
+	position: absolute;
+}
+
+.titlebar {
+	position: absolute;
+	left: calc(3 * var(--u));
+	right: calc(3 * var(--u));
+	top: calc(3 * var(--u));
+	height: calc(18 * var(--u));
+	display: flex;
+	align-items: center;
+	background: var(--titre);
+}
+
+.titlebar__title {
+	font-size: 64px;
+	font-weight: 400;
+	line-height: normal;
+	color: var(--blanc);
+	white-space: nowrap;
+}
+
+.titlebar__btn {
+	position: absolute;
+	top: 50%;
+	width: calc(16 * var(--u));
+	height: calc(14 * var(--u));
+	transform: translateY(-50%);
+}
+
+.titlebar__btn--min { right: calc(36.07 * var(--u)); }
+.titlebar__btn--max { right: calc(20.07 * var(--u)); }
+.titlebar__btn--close { right: calc(2.07 * var(--u)); }
+
+.titlebar__btn img {
+	position: absolute;
+}
+
+.titlebar__btn--min::after {
+	content: "";
+	position: absolute;
+	left: calc(4 * var(--u));
+	top: calc(9 * var(--u));
+	width: calc(6 * var(--u));
+	height: calc(2 * var(--u));
+	background: #000;
+}
+
+.titlebar__btn--max img {
+	left: calc(3 * var(--u));
+	top: calc(2 * var(--u));
+}
+
+.titlebar__btn--close img {
+	left: calc(4 * var(--u));
+	top: calc(3 * var(--u));
+}
+
+/* Bouton texte : le relief est inséré dans la zone cliquable, comme dans la maquette */
+.btn {
+	--u: 9.34px;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	isolation: isolate;
+	font-size: 40px;
+	line-height: normal;
+}
+
+.btn::before {
+	content: "";
+	position: absolute;
+	inset: var(--btn-inset, var(--u));
+	z-index: -1;
+	background: var(--gris);
+	box-shadow:
+		inset calc(-1 * var(--u)) calc(-1 * var(--u)) 0 #000,
+		inset var(--u) var(--u) 0 #fff,
+		inset calc(-2 * var(--u)) calc(-2 * var(--u)) 0 var(--gris-fonce),
+		inset calc(2 * var(--u)) calc(2 * var(--u)) 0 var(--gris-clair);
+}
+
+.btn:active::before {
+	box-shadow:
+		inset var(--u) var(--u) 0 #000,
+		inset calc(-1 * var(--u)) calc(-1 * var(--u)) 0 #fff,
+		inset calc(2 * var(--u)) calc(2 * var(--u)) 0 var(--gris-fonce),
+		inset calc(-2 * var(--u)) calc(-2 * var(--u)) 0 var(--gris-clair);
+}
+

@@ -1,0 +1,660 @@
+/*
+	Frigo – écran tactile du frigo connecté. Maquettes Figma 768 × 1024 (portrait).
+	À charger après ../shared/css/win95.css.
+*/
+
+.frigo {
+	--stage-w: 768px;
+	--stage-h: 1024px;
+}
+
+/* Cadre de la fenêtre (relief de 1px) */
+.frigo .stage {
+	--u: 1px;
+}
+
+.stage > *,
+.accueil > *,
+.app > * {
+	position: absolute;
+}
+
+.accueil,
+.app,
+.dialog,
+.off {
+	inset: 0;
+}
+
+/* Chaque couche a son propre empilement : le contenu ne passe pas devant les dialogues */
+.accueil,
+.app {
+	z-index: 0;
+}
+
+.app[hidden],
+.dialog[hidden],
+.off[hidden],
+[hidden] {
+	display: none;
+}
+
+/* Une application ouverte masque l’accueil */
+.stage[data-app] .accueil {
+	display: none;
+}
+
+/* Graisse « Medium » de la maquette */
+.tile__label,
+.preview__title,
+.notes__title,
+.slider__scale,
+.info p {
+	font-weight: 500;
+}
+
+/* ---------- Barre de titre, horloge, bouton du coin ---------- */
+
+.bar {
+	left: 0;
+	top: 0;
+	width: 768px;
+	height: 69px;
+	display: flex;
+	align-items: center;
+	padding-left: 11px;
+	background: var(--titre);
+}
+
+.bar__title {
+	font-size: 20px;
+	font-weight: 400;
+	color: #fff;
+}
+
+.clock {
+	left: 655px;
+	top: 81px;
+	width: 100px;
+	height: 48px;
+	padding-right: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	background: #c3c3c3;
+	box-shadow:
+		inset -2px -2px 0 #f0f0f0,
+		inset 2px 2px 0 #7e7e7e;
+	font-size: 19px; /* la maquette utilise W95FA en 24px : Recursive est plus large */
+	color: #000;
+	white-space: nowrap;
+}
+
+/* Sur l’accueil, l’horloge est plus grande */
+.stage:not([data-app]) .clock {
+	left: 636px;
+	width: 123px;
+	height: 59.04px;
+	padding-right: 9.84px;
+	box-shadow:
+		inset -2.46px -2.46px 0 #f0f0f0,
+		inset 2.46px 2.46px 0 #7e7e7e;
+	font-size: 23px;
+}
+
+/* Bouton du coin : éteindre (accueil) ou fermer (applications) */
+.corner {
+	--u: 1px;
+	left: 704px;
+	top: 7px;
+	width: 57px;
+	height: 50px;
+}
+
+.corner img {
+	position: absolute;
+}
+
+.corner__power {
+	left: 3px;
+	top: 0;
+	width: 50px;
+	height: 50px;
+	object-fit: contain;
+}
+
+.corner__close {
+	left: 9px;
+	top: 8px;
+}
+
+.corner--close {
+	display: none;
+}
+
+.stage[data-app] .corner--close {
+	display: block;
+}
+
+.corner:active {
+	filter: brightness(0.85);
+}
+
+/* ---------- Accueil ---------- */
+
+.tiles {
+	left: 60px;
+	top: 185px;
+	width: 647px;
+	height: 760px;
+	display: grid;
+	grid-template-columns: 278px 278px;
+	grid-template-rows: 350px 350px;
+	justify-content: space-between;
+	align-content: space-between;
+}
+
+/* Vignette : cadre gravé, libellé souligné posé sur le trait */
+.tile {
+	position: relative;
+	text-align: left;
+}
+
+.tile::before {
+	content: "";
+	position: absolute;
+	inset: 13px 1px 1px 0;
+	border: 1px solid var(--gris-fonce);
+	box-shadow:
+		inset 1px 1px 0 #fff,
+		1px 1px 0 #fff;
+}
+
+.tile img {
+	position: absolute;
+	max-width: none;
+}
+
+.tile__label {
+	position: absolute;
+	z-index: 1;
+	left: 8px;
+	top: 1px;
+	padding: 2px 2px 2px;
+	background: var(--gris);
+	font-size: 20px;
+	line-height: 20px;
+	letter-spacing: -0.2px;
+	text-decoration: underline;
+	color: #000;
+	white-space: nowrap;
+}
+
+.tile:active img {
+	filter: brightness(0.85);
+}
+
+.tile--frigo img {
+	left: 5.09%;
+	top: -0.03%;
+	width: 89.67%;
+	height: 100%;
+}
+
+.tile--notes img {
+	left: 16px;
+	top: 47.41px;
+	width: 245.52px;
+	height: 266.43px;
+}
+
+/* Le calendrier déborde de son image : on le recadre dans la vignette */
+.tile--calendrier {
+	overflow: hidden;
+}
+
+.tile--calendrier img {
+	left: -36.89%;
+	top: -4.39%;
+	width: 197.12%;
+	height: 126.16%;
+}
+
+.tile__crop {
+	position: absolute;
+	left: 0;
+	top: 15px;
+	width: 278px;
+	height: 335px;
+	overflow: hidden;
+}
+
+.tile--parametres img {
+	left: -7.81px;
+	top: 24.58px;
+	width: 294.2px;
+	height: 310.73px;
+}
+
+/* Notification sur « Notes » */
+.badge {
+	left: 685px;
+	top: 190px;
+	width: 28.89px;
+	height: 28.89px;
+	background: red;
+	font-size: 28.89px;
+	line-height: 28.89px;
+	text-align: center;
+	color: #fff;
+	pointer-events: none;
+}
+
+/* ---------- Frigo : étagères et aliments ---------- */
+
+/* Étagère : trait noir, ou gris quand le frigo est estompé */
+.shelf img + img {
+	display: none;
+}
+
+.foods {
+	inset: 0;
+}
+
+.food {
+	position: absolute;
+	overflow: hidden;
+}
+
+.food img,
+.preview__image img {
+	position: absolute;
+	max-width: none;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* Image recadrée (canette, yaourt, lait) : position donnée en pourcentages */
+.food img[style],
+.preview__image img[style] {
+	inset: auto;
+	object-fit: fill;
+}
+
+.food--rot,
+.preview__image.food--rot {
+	transform: rotate(90deg);
+}
+
+.food:active img {
+	filter: brightness(0.85);
+}
+
+/* Aperçu ou fiche ouverts : le frigo s’estompe */
+#frigo.is-faded .shelf img:first-child {
+	display: none;
+}
+
+#frigo.is-faded .shelf img + img {
+	display: block;
+}
+
+#frigo.is-faded .food {
+	opacity: 0.15;
+	pointer-events: none;
+}
+
+/* ---------- Aperçu d’un aliment ---------- */
+
+.preview {
+	inset: 0;
+}
+
+.preview > * {
+	position: absolute;
+}
+
+.preview__back {
+	left: 24px;
+	top: 76px;
+	width: 75px;
+	height: 75px;
+}
+
+.preview__back img {
+	width: 75px;
+	height: 75px;
+	object-fit: cover;
+	transform: rotate(180deg);
+}
+
+.preview__title {
+	z-index: 1;
+	left: 0;
+	right: 0;
+	top: 244px;
+	font-size: 48px;
+	line-height: 20px;
+	letter-spacing: -0.48px;
+	text-align: center;
+	color: #000;
+	white-space: nowrap;
+}
+
+.preview__image {
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.btn-infos {
+	--u: 3.053px;
+	z-index: 1;
+	left: 287px;
+	top: 822px;
+	width: 193.33px;
+	height: 73.38px;
+	background: #e0e0e0;
+	font-size: 20px;
+	color: #000;
+}
+
+/* ---------- Fiche d’un aliment ---------- */
+
+.info {
+	--u: 3.31px;
+	left: 78px;
+	top: 175px;
+	width: 611px;
+	height: 711px;
+	background: #fff;
+}
+
+.info > * {
+	position: absolute;
+}
+
+.info__bar {
+	left: 9.93px;
+	top: 9.93px;
+	width: 591px;
+	height: 59.58px;
+	background: var(--titre);
+}
+
+.info__title {
+	position: absolute;
+	left: 8.46px;
+	top: 3.07px;
+	height: 53.1px;
+	display: flex;
+	align-items: center;
+	font-size: 15.39px;
+	font-weight: 400;
+	color: #fff;
+	white-space: nowrap;
+}
+
+.info__close {
+	--u: 0.77px;
+	position: absolute;
+	left: 541.75px;
+	top: 8.46px;
+	width: 43.86px;
+	height: 38.48px;
+}
+
+.info__close img {
+	position: absolute;
+	left: 6.93px;
+	top: 6.15px;
+}
+
+.info p {
+	left: 75px;
+	width: 455px;
+	font-size: 36px;
+	line-height: 38px;
+	letter-spacing: -0.36px;
+	color: #000;
+}
+
+.info__date { top: 110px; }
+.info__frais { top: 234px; }
+.info__prix { top: 528px; }
+.info__quantite { top: 617px; }
+
+.info__nutriscore {
+	object-fit: cover;
+}
+
+/* ---------- Notes ---------- */
+
+.notes__title {
+	left: 26px;
+	top: 94px;
+	font-size: 58.36px;
+	line-height: 58.36px;
+	letter-spacing: -0.58px;
+	text-decoration: underline;
+	color: #000;
+}
+
+.notes__text {
+	left: 46px;
+	top: 189px;
+	width: 487px;
+	font-size: 20px;
+	line-height: normal;
+	color: #000;
+}
+
+.notes__text ul {
+	padding-left: 30px;
+	list-style: square;
+}
+
+.notes__gap {
+	margin-top: 1.2em;
+}
+
+/* ---------- Calendrier ---------- */
+
+.calendar__month {
+	left: 300px;
+	top: 114px;
+	width: 168px;
+	height: 83px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 30px;
+	color: #000;
+}
+
+.calendar {
+	left: 89px;
+	top: 172px;
+	width: 588px;
+	border-collapse: collapse;
+	font-size: 35px;
+	color: #000;
+}
+
+.calendar th,
+.calendar td {
+	width: 84px;
+	height: 84px;
+	padding: 0;
+	font-weight: 400;
+	text-align: center;
+}
+
+.calendar thead tr {
+	border-bottom: 6px solid #000;
+}
+
+.calendar th {
+	height: 79px;
+}
+
+.calendar tbody tr {
+	border-bottom: 1px solid #555;
+}
+
+.calendar .out,
+.calendar .out td {
+	color: #727171;
+}
+
+/* Flèches de pages (décoratives), dessinées en escalier de pixels */
+.pager {
+	top: 955px;
+	width: 14px;
+	height: 28px;
+	background: #000;
+	clip-path: polygon(0 0, 3.5px 0, 3.5px 3.5px, 7px 3.5px, 7px 8.75px, 10.5px 8.75px, 10.5px 12.25px, 14px 12.25px, 14px 15.75px, 10.5px 15.75px, 10.5px 19.25px, 7px 19.25px, 7px 24.5px, 3.5px 24.5px, 3.5px 28px, 0 28px);
+}
+
+.pager--next {
+	left: 663px;
+}
+
+.pager--prev {
+	left: 635px;
+	background: #8f8f8f;
+	transform: scaleX(-1);
+}
+
+/* ---------- Réglages ---------- */
+
+/* Groupe : cadre gravé, libellé posé sur le trait */
+.group {
+	border: 1px solid var(--gris-fonce);
+	box-shadow:
+		inset 1px 1px 0 #fff,
+		1px 1px 0 #fff;
+}
+
+.group > * {
+	position: absolute;
+}
+
+.group__label {
+	left: 7px;
+	top: -6px;
+	padding: 0 2px;
+	background: var(--gris);
+	font-size: 20px;
+	line-height: 12px;
+	color: #000;
+	white-space: nowrap;
+}
+
+.group__icon {
+	object-fit: cover;
+}
+
+.slider {
+	left: 81px;
+	top: 380px;
+	width: 267px;
+}
+
+.slider__scale {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 5px;
+	font-size: 34.7px;
+	line-height: 43.95px;
+	color: #000;
+}
+
+.help {
+	left: 678px;
+	top: 935px;
+	width: 57px;
+	height: 57px;
+}
+
+.help img {
+	width: 57px;
+	height: 57px;
+	object-fit: cover;
+}
+
+/* ---------- Message M.U.S.T ---------- */
+
+.must .titlebar__btn--min,
+.must .titlebar__btn--max {
+	display: none;
+}
+
+.must__text {
+	position: absolute;
+	font-size: 30.085px;
+	line-height: normal;
+	color: #000;
+}
+
+.must__text p + p {
+	margin-top: 1.2em;
+}
+
+/* Au démarrage, sur l’accueil (--u = 4.73px) */
+.must--accueil {
+	--u: 4.73px;
+	left: 29px;
+	top: 275px;
+	width: 709.5px;
+	height: 473px;
+}
+
+.must--accueil .titlebar {
+	padding-left: 12.74px;
+}
+
+.must--accueil .titlebar__title {
+	font-size: 41.26px;
+}
+
+.must--accueil .must__text {
+	left: 43px;
+	top: 133px;
+	width: 633px;
+}
+
+/* Depuis l’aide des réglages (--u = 3.753px) */
+.must--aide {
+	--u: 3.753px;
+	left: 102px;
+	top: 247px;
+	width: 564px;
+	height: 530px;
+}
+
+.must--aide .titlebar {
+	padding-left: 10.11px;
+}
+
+.must--aide .titlebar__title {
+	font-size: 32.74px;
+}
+
+.must--aide .must__text {
+	left: 34.12px;
+	top: 105.54px;
+	width: 502.3px;
+}
+
+/* ---------- Écran éteint ---------- */
+
+.off {
+	background: #000;
+}
+
+.off .corner {
+	left: 709px;
+	top: 2px;
+}

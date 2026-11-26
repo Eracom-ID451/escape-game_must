@@ -1,0 +1,358 @@
+/*
+	Aspirateur – application du robot aspirateur. Maquettes Figma 844 × 390.
+	À charger après ../shared/css/win95.css.
+*/
+
+.aspirateur {
+	--stage-w: 844px;
+	--stage-h: 390px;
+}
+
+.aspirateur .stage {
+	--u: 1px;
+	background: #9f9f9f;
+	font-size: 16px;
+}
+
+.stage > * {
+	position: absolute;
+}
+
+[hidden] {
+	display: none !important;
+}
+
+/* Texte placé par le haut des capitales (comme dans la maquette) */
+.cap {
+	position: absolute;
+	margin-top: -0.15em;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1;
+	white-space: nowrap;
+}
+
+/* ---------- Barres de titre ---------- */
+
+/* Barre de titre de l’application, sur toute la largeur */
+.titlebar--main {
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 28px;
+	align-items: flex-start;
+	padding: 3px 0 0 4px;
+}
+
+.titlebar--main .titlebar__title {
+	font-size: 16px;
+}
+
+/* Petites fenêtres (--u = 1px) */
+.panel .titlebar,
+.window--aide .titlebar,
+.window--jour .titlebar {
+	padding-left: 4px;
+}
+
+.panel .titlebar__title,
+.window--aide .titlebar__title,
+.window--jour .titlebar__title {
+	font-size: 11px;
+}
+
+/* ---------- Bouton d’aide ---------- */
+
+.help {
+	left: 800px;
+	top: 28px;
+	width: 32px;
+	height: 32px;
+}
+
+.help img {
+	width: 100%;
+	height: 100%;
+}
+
+.help--aide {
+	position: absolute;
+	left: 798px;
+	top: 39px;
+}
+
+/* ---------- Menu ---------- */
+
+.menu {
+	left: 76px;
+	top: 88px;
+	width: 309px;
+	display: flex;
+	flex-direction: column;
+	gap: 11px;
+}
+
+/* Bouton en relief (menu, jours, mise à jour) ; enfoncé quand actif */
+.menu__btn {
+	display: flex;
+	align-items: center;
+	height: 34px;
+	padding: 0 10px;
+	background: #c3c3c3;
+	font-size: 20px;
+	line-height: 1;
+	text-align: left;
+	white-space: nowrap;
+	box-shadow:
+		inset -2px -2px 0 #262626,
+		inset 2px 2px 0 #f0f0f0,
+		inset -4px -4px 0 #7e7e7e,
+		inset 4px 4px 0 #b1b1b1;
+}
+
+.menu__btn:active,
+.menu__btn.is-active {
+	box-shadow:
+		inset -2px -2px 0 #f0f0f0,
+		inset 2px 2px 0 #262626,
+		inset -4px -4px 0 #b1b1b1,
+		inset 4px 4px 0 #7e7e7e;
+}
+
+.divider {
+	left: 421.5px;
+	top: 70px;
+	width: 1px;
+	height: 250px;
+}
+
+/* ---------- Panneaux ---------- */
+
+.panel {
+	left: 459px;
+	color: #080808;
+}
+
+.panel > :not(.titlebar) {
+	position: absolute;
+}
+
+/* Statut */
+.battery {
+	left: 10px;
+	top: 73px;
+	width: 202px;
+	height: 18px;
+	object-fit: cover;
+}
+
+.battery__value {
+	left: 181px;
+	top: 77px;
+	font-size: 11.375px;
+	color: #000;
+}
+
+.battery__state {
+	left: 220px;
+	top: 79px;
+	font-size: 10px;
+}
+
+.energy {
+	left: 7px;
+	top: 147.6px;
+	font-size: 11px;
+	line-height: 12.562px;
+	color: #000;
+	white-space: nowrap;
+}
+
+.energy li {
+	margin-left: 16.5px;
+}
+
+.bin {
+	left: 10px;
+	top: 246px;
+	width: 19px;
+	height: 19px;
+	object-fit: cover;
+}
+
+.bin__text {
+	left: 36px;
+	top: 254px;
+	font-size: 14px;
+	color: #000;
+}
+
+/* Carte */
+#carte {
+	--u: 1.05px;
+}
+
+#carte .titlebar__title {
+	font-size: 11.545px;
+}
+
+.map {
+	left: 7.35px;
+	top: 31.66px;
+	width: 197.31px;
+	height: 264.13px;
+}
+
+/* Historique */
+.days {
+	left: 9px;
+	top: 25px;
+	width: 292px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	list-style: none;
+}
+
+.days .menu__btn {
+	width: 100%;
+	justify-content: space-between;
+}
+
+/* Information système */
+.update {
+	left: 50px;
+	top: 153px;
+	width: 207px;
+	height: 31px;
+	justify-content: center;
+	font-size: 16px;
+}
+
+/* ---------- Écrans plein cadre (aide, jours) ---------- */
+
+.screen,
+.dialog {
+	inset: 0;
+}
+
+.screen {
+	background: #9f9f9f;
+}
+
+.screen > .window {
+	--u: 1px;
+}
+
+.titlebar__btn {
+	cursor: pointer;
+}
+
+/* Aide */
+.window--aide {
+	left: 58px;
+	top: 49px;
+	width: 720px;
+	height: 311px;
+}
+
+.aide__text {
+	position: absolute;
+	left: 24px;
+	top: 39.6px;
+	width: 659px;
+	font-size: 16px;
+	line-height: 20px;
+	color: #000;
+}
+
+.aide__text p + p {
+	margin-top: 20px;
+}
+
+.btn--aide {
+	--u: 1px;
+	--btn-inset: 1px;
+	left: 299.5px;
+	top: 254px;
+	width: 107px;
+	height: 25px;
+	font-size: 16px;
+}
+
+/* Jours */
+.window--jour {
+	left: 66px;
+	top: 52px;
+	width: 712px;
+	height: 305px;
+	color: #000;
+}
+
+.jour__date {
+	position: absolute;
+	left: 25px;
+	top: 46px;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 20px;
+}
+
+.jour__route {
+	position: absolute;
+	left: 25px;
+	top: 82px;
+	width: 670px;
+	font-size: 20px;
+	line-height: 36px;
+	letter-spacing: -0.8px;
+	white-space: pre-wrap;
+}
+
+.btn--jour {
+	--u: 2.889px;
+	--btn-inset: 2.889px;
+	left: 280px;
+	top: 237px;
+	width: 152px;
+	height: 54px;
+	font-size: 20px;
+}
+
+/* ---------- Dialogue d’erreur (--u = 2.889px) ---------- */
+
+.window--error {
+	--u: 2.889px;
+	left: 145px;
+	top: 39px;
+	width: 554.67px;
+	height: 312px;
+}
+
+.window--error .dialog__icon {
+	position: absolute;
+	left: 52px;
+	top: 89.56px;
+	width: 92.44px;
+	height: 92.44px;
+	object-fit: cover;
+}
+
+.window--error .dialog__text {
+	position: absolute;
+	left: 179px;
+	top: 118px;
+	font-size: 32px;
+	line-height: 37.56px;
+	color: #000;
+	white-space: nowrap;
+}
+
+.window--error .btn--ok {
+	--btn-inset: 2.889px;
+	left: 173.33px;
+	top: 208px;
+	width: 219.56px;
+	height: 72.22px;
+	font-size: 32px;
+}

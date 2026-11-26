@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>M.U.S.T – Aspirateur</title>
+	<link rel="stylesheet" href="../shared/css/win95.css">
+	<link rel="stylesheet" href="css/aspirateur.css">
+</head>
+<body class="aspirateur">
+	<main class="stage">
+
+		<!-- Application du robot -->
+		<header class="titlebar titlebar--main">
+			<h1 class="titlebar__title">M.U.S.T.</h1>
+			<span class="titlebar__btn titlebar__btn--min relief-button" aria-hidden="true"></span>
+			<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-xs-maximize.svg" alt=""></span>
+			<span class="titlebar__btn titlebar__btn--close relief-button" aria-hidden="true"><img src="assets/btn-xs-close.svg" alt=""></span>
+		</header>
+
+		<button type="button" class="help" data-open="aide" aria-label="Aide"><img src="assets/help.png" alt=""></button>
+
+		<nav class="menu">
+			<button type="button" class="menu__btn" data-panel="statut">Statut</button>
+			<button type="button" class="menu__btn" data-panel="consommables">État des consommables</button>
+			<button type="button" class="menu__btn" data-panel="carte">Carte</button>
+			<button type="button" class="menu__btn" data-panel="historique">Historique</button>
+			<button type="button" class="menu__btn" data-panel="information">Information Système</button>
+		</nav>
+
+		<img class="divider" src="assets/divider.svg" alt="">
+
+		<!-- Panneaux : un seul visible à la fois -->
+
+		<section class="panel relief-window" id="statut" style="top: 45px; width: 327px; height: 299px">
+			<header class="titlebar"><h2 class="titlebar__title">M.U.S.T.</h2></header>
+			<h3 class="cap" style="left: 10px; top: 49px">Batterie</h3>
+			<img class="battery" src="assets/battery.png" alt="Batterie à 50 %">
+			<span class="cap battery__value">50%</span>
+			<span class="cap battery__state">en chargement</span>
+			<h3 class="cap" style="left: 7px; top: 124px">Dépense d’énergie</h3>
+			<ul class="energy">
+				<li>Nettoyages cette semaine : 7</li>
+				<li>Surface totale nettoyée : 191 m²</li>
+				<li>Énergie totale utilisée : 0,167 kWh</li>
+				<li>Consommation moyenne par session : 0,033 kWh</li>
+			</ul>
+			<h3 class="cap" style="left: 10px; top: 225px">Poubelle</h3>
+			<img class="bin" src="assets/bin.png" alt="">
+			<p class="cap bin__text">Bac à poussière : 60 % plein</p>
+		</section>
+
+		<section class="panel relief-window" id="consommables" hidden style="top: 88px; width: 309px; height: 214px">
+			<header class="titlebar"><h2 class="titlebar__title">M.U.S.T.</h2></header>
+			<p class="cap" style="left: 7px; top: 71px">Filtre HEPA : 82%</p>
+			<p class="cap" style="left: 7px; top: 102px">Brosses latérales : 14%</p>
+			<p class="cap" style="left: 7px; top: 133px">Capteurs laser : 95%</p>
+		</section>
+
+		<section class="panel relief-window" id="carte" hidden style="left: 523px; top: 48px; width: 212px; height: 307.5px">
+			<header class="titlebar"><h2 class="titlebar__title">M.U.S.T</h2></header>
+			<img class="map" src="assets/map.png" alt="Plan de l’appartement : salon, entrée, chambre 1, cuisine, chambre 2, salle de bain">
+		</section>
+
+		<section class="panel relief-window" id="historique" hidden style="top: 52px; width: 309px; height: 299px">
+			<header class="titlebar"><h2 class="titlebar__title">M.U.S.T.</h2></header>
+			<ul class="days">
+				<li><button type="button" class="menu__btn" data-open="lundi"><span>Lundi</span><span>02/03</span></button></li>
+				<li><button type="button" class="menu__btn" data-open="mardi"><span>Mardi</span><span>03/03</span></button></li>
+				<li><button type="button" class="menu__btn" data-open="mercredi"><span>Mercredi</span><span>04/03</span></button></li>
+				<li><button type="button" class="menu__btn" data-open="jeudi"><span>Jeudi</span><span>05/03</span></button></li>
+				<li><button type="button" class="menu__btn" data-open="vendredi"><span>Vendredi</span><span>06/03</span></button></li>
+				<li><button type="button" class="menu__btn" data-open="samedi"><span>Samedi</span><span>07/03</span></button></li>
+				<li><button type="button" class="menu__btn" data-open="dimanche"><span>Dimanche</span><span>08/03</span></button></li>
+			</ul>
+		</section>
+
+		<section class="panel relief-window" id="information" hidden style="top: 88px; width: 309px; height: 214px">
+			<header class="titlebar"><h2 class="titlebar__title">M.U.S.T.</h2></header>
+			<p class="cap" style="left: 27px; top: 50px">Modèle : M.U.S.T. Vac-X</p>
+			<p class="cap" style="left: 27px; top: 88px">S/N : 2024-0610-AF</p>
+			<p class="cap" style="left: 27px; top: 125px">Version Firmware : 4.2.1.0</p>
+			<button type="button" class="menu__btn update" data-open="erreur">Mise à jour système</button>
+		</section>
+
+		<!-- Aide (affichée au démarrage, rouverte par le « ? ») -->
+
+		<section class="screen" id="aide" hidden>
+			<header class="titlebar titlebar--main">
+				<h2 class="titlebar__title">M.U.S.T.</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-xs-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-xs-close.svg" alt=""></button>
+			</header>
+			<img class="help help--aide" src="assets/help.png" alt="">
+			<section class="window window--aide relief-window" role="dialog" aria-label="Aide">
+				<header class="titlebar"><h3 class="titlebar__title">M.U.S.T.</h3></header>
+				<div class="aide__text">
+					<p>Depuis les quatre derniers jours de la semaine, le robot aspirateur semble suivre un schéma bien précis dans son nettoyage. Comme s’il essayait de vous laisser un message.</p>
+					<p>Consultez l’historique de ses déplacements et suivez attentivement l’ordre des pièces qu’il traverse. En sachant qu’il part toujours du salon et y revient systématiquement.</p>
+					<p>Tracez mentalement son parcours sur le plan de l’appartement. Vous verrez alors apparaître un élément essentiel pour avancer.</p>
+				</div>
+				<button type="button" class="btn btn--aide" data-close>OK</button>
+			</section>
+		</section>
+
+		<!-- Historique : un écran par jour (deux espaces autour des flèches) -->
+
+		<section class="screen" id="lundi" hidden>
+			<header class="titlebar titlebar--main">
+				<h2 class="titlebar__title">M.U.S.T.</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-xs-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-xs-close.svg" alt=""></button>
+			</header>
+			<section class="window window--jour relief-window">
+				<header class="titlebar"><h3 class="titlebar__title">M.U.S.T.</h3></header>
+				<h4 class="jour__date">Lundi 02/03</h4>
+				<p class="jour__route">salon  →  entrée  →  cuisine  →  chambre 1  →  chambre 2  →  salle de bain  →  chambre 2  →  chambre 1  →  cuisine  →  entrée  →  salon</p>
+				<button type="button" class="btn btn--jour" data-close>OK</button>
+			</section>
+		</section>
+
+		<section class="screen" id="mardi" hidden>
+			<header class="titlebar titlebar--main">
+				<h2 class="titlebar__title">M.U.S.T.</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-xs-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-xs-close.svg" alt=""></button>
+			</header>
+			<section class="window window--jour relief-window">
+				<header class="titlebar"><h3 class="titlebar__title">M.U.S.T.</h3></header>
+				<h4 class="jour__date">Mardi 03/03</h4>
+				<p class="jour__route">salon  →  entrée  →  cuisine  →  salle de bain  →  cuisine  →  entrée  →  salon</p>
+				<button type="button" class="btn btn--jour" data-close>OK</button>
+			</section>
+		</section>
+
+		<section class="screen" id="mercredi" hidden>
+			<header class="titlebar titlebar--main">
+				<h2 class="titlebar__title">M.U.S.T.</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-xs-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-xs-close.svg" alt=""></button>
+			</header>
+			<section class="window window--jour relief-window">
+				<header class="titlebar"><h3 class="titlebar__title">M.U.S.T.</h3></header>
+				<h4 class="jour__date">Mercredi 04/03</h4>
+				<p class="jour__route">salon  →  entrée  →  salon  →  chambre 1  →  chambre 2  →  salle de bain  →  cuisine  →  chambre 1  →  salon</p>
+				<button type="button" class="btn btn--jour" data-close>OK</button>
+			</section>
+		</section>
+
+		<section class="screen" id="jeudi" hidden>
+			<header class="titlebar titlebar--main">
+				<h2 class="titlebar__title">M.U.S.T.</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-xs-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-xs-close.svg" alt=""></button>
+			</header>
+			<section class="window window--jour relief-window">
+				<header class="titlebar"><h3 class="titlebar__title">M.U.S.T.</h3></header>
+				<h4 class="jour__date">Jeudi 05/03</h4>
+				<p class="jour__route">salon  →  chambre 1  →  cuisine  →  entrée  →  cuisine  →  salle de bain  →  cuisine  →  chambre 1  →  salon</p>
+				<button type="button" class="btn btn--jour" data-close>OK</button>
+			</section>
+		</section>
+
+		<section class="screen" id="vendredi" hidden>
+			<header class="titlebar titlebar--main">
+				<h2 class="titlebar__title">M.U.S.T.</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-xs-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-xs-close.svg" alt=""></button>
+			</header>
+			<section class="window window--jour relief-window">
+				<header class="titlebar"><h3 class="titlebar__title">M.U.S.T.</h3></header>
+				<h4 class="jour__date">Vendredi 06/03</h4>
+				<p class="jour__route">salon  →  entrée  →  salon  →  chambre 1  →  cuisine  →  salle de bain  →  chambre 2  →  salle de bain  →  cuisine  →  chambre 1  →  salon</p>
+				<button type="button" class="btn btn--jour" data-close>OK</button>
+			</section>
+		</section>
+
+		<section class="screen" id="samedi" hidden>
+			<header class="titlebar titlebar--main">
+				<h2 class="titlebar__title">M.U.S.T.</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-xs-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-xs-close.svg" alt=""></button>
+			</header>
+			<section class="window window--jour relief-window">
+				<header class="titlebar"><h3 class="titlebar__title">M.U.S.T.</h3></header>
+				<h4 class="jour__date">Samedi 07/03</h4>
+				<p class="jour__route">salon  →  entrée  →  cuisine  →  chambre 1  →  cuisine  →  salle de bain  →  chambre 2  →  salle de bain  →  cuisine  →  entrée  →  salon</p>
+				<button type="button" class="btn btn--jour" data-close>OK</button>
+			</section>
+		</section>
+
+		<section class="screen" id="dimanche" hidden>
+			<header class="titlebar titlebar--main">
+				<h2 class="titlebar__title">M.U.S.T.</h2>
+				<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-xs-maximize.svg" alt=""></span>
+				<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-xs-close.svg" alt=""></button>
+			</header>
+			<section class="window window--jour relief-window">
+				<header class="titlebar"><h3 class="titlebar__title">M.U.S.T.</h3></header>
+				<h4 class="jour__date">Dimanche 08/03</h4>
+				<p class="jour__route">salon  →  entrée  →  cuisine  →  salle de bain  →  chambre 2  →  chambre 1  →  salon</p>
+				<button type="button" class="btn btn--jour" data-close>OK</button>
+			</section>
+		</section>
+
+		<!-- Mise à jour système : erreur -->
+
+		<div class="dialog" id="erreur" hidden>
+			<section class="window window--error relief-window" role="alertdialog" aria-label="Erreur">
+				<header class="titlebar">
+					<h2 class="titlebar__title"></h2>
+					<button type="button" class="titlebar__btn titlebar__btn--min relief-button" data-close aria-label="Réduire"></button>
+					<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/btn-s-maximize.svg" alt=""></span>
+					<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close aria-label="Fermer"><img src="assets/btn-s-close.svg" alt=""></button>
+				</header>
+				<img class="dialog__icon" src="assets/icon-error.png" alt="">
+				<p class="dialog__text">Erreur</p>
+				<button type="button" class="btn btn--ok" data-close>OK</button>
+			</section>
+		</div>
+
+	</main>
+	<script src="../shared/js/stage.js"></script>
+	<script src="js/aspirateur.js"></script>
+</body>
+</html>

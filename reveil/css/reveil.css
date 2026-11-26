@@ -1,0 +1,331 @@
+/*
+	Réveil – radio-réveil à chiffres à sept segments. Maquettes Figma 844 × 390.
+	À charger après ../shared/css/win95.css.
+*/
+
+.reveil {
+	--stage-w: 844px;
+	--stage-h: 390px;
+
+	--fond: #adadad;
+	--allume: #000;
+	--eteint: #a1a1a1;
+	--vert: #1aaf15;
+	--ecran: #d9d9d9;
+}
+
+.stage > * {
+	position: absolute;
+}
+
+/* ---------- Écrans ---------- */
+
+.screen {
+	inset: 0;
+	background: var(--fond);
+	box-shadow:
+		inset 7px 7px 0 #dfdfdf,
+		inset -7px -7px 0 #6d6d6d;
+	color: var(--allume);
+}
+
+.screen[hidden] {
+	display: none;
+}
+
+.screen > *,
+.clock > *,
+.jm > *,
+.temp > *,
+.freq > *,
+.thermo > *,
+.station > * {
+	position: absolute;
+}
+
+/* ---------- Chiffres à sept segments (dessinés par js/reveil.js) ---------- */
+
+.digit {
+	overflow: visible;
+}
+
+.digit polygon {
+	fill: var(--eteint);
+}
+
+.digit .on {
+	fill: currentColor;
+}
+
+.digit .green {
+	fill: var(--vert);
+}
+
+/* Petit « c » des degrés : sans segment éteint */
+.digit--bare .off {
+	fill: none;
+}
+
+/* Losanges : deux-points, points décimaux */
+.diamond {
+	background: currentColor;
+	transform: rotate(45deg);
+}
+
+.diamond--clock { width: 19.34px; height: 19.34px; }
+.diamond--small { width: 5.64px; height: 5.64px; }
+.diamond--dot { width: 4.67px; height: 4.67px; }
+.diamond--freq { width: 6.6px; height: 6.6px; }
+.diamond--big { width: 30.31px; height: 30.31px; }
+
+/* Ce qui est trouvé passe au vert */
+.is-green {
+	color: var(--vert);
+}
+
+/* ---------- Écran principal ---------- */
+
+.clock,
+.jm,
+.temp,
+.freq,
+.thermo {
+	inset: 0;
+	pointer-events: none;
+}
+
+/* Afficheur éteint entre deux températures */
+.thermo.is-off {
+	color: var(--eteint);
+}
+
+.label {
+	font-size: 12px;
+	line-height: normal;
+	font-variation-settings: "MONO" 0, "CASL" 0, "CRSV" 0.5, "slnt" 0;
+	white-space: nowrap;
+}
+
+.mhz {
+	left: 746px;
+	top: 298px;
+	font-size: 24px;
+	line-height: normal;
+}
+
+/* Petits boutons ENTER / Reset (relief d’une ligne de 1px) */
+.enter {
+	--u: 1px;
+	width: 75px;
+	height: 19px;
+	border: 1px solid transparent;
+	background: var(--gris) padding-box;
+	box-shadow:
+		inset -1px -1px 0 #000,
+		inset 1px 1px 0 #fff,
+		inset -2px -2px 0 var(--gris-fonce),
+		inset 2px 2px 0 var(--gris-clair);
+	font-size: 12px;
+	line-height: 17px;
+}
+
+.enter:active {
+	box-shadow:
+		inset 1px 1px 0 #000,
+		inset -1px -1px 0 #fff,
+		inset 2px 2px 0 var(--gris-fonce),
+		inset -2px -2px 0 var(--gris-clair);
+}
+
+.enter:disabled {
+	color: rgb(10 10 10 / 0.2);
+	cursor: default;
+	box-shadow:
+		inset -1px -1px 0 #000,
+		inset 1px 1px 0 #fff,
+		inset -2px -2px 0 var(--gris-fonce),
+		inset 2px 2px 0 var(--gris-clair);
+}
+
+.enter[hidden] {
+	display: none;
+}
+
+/* ---------- Boutons carrés (relief épais, composant « Close » de la maquette) ---------- */
+
+.square {
+	--u: 6.188px;
+	width: 57px;
+	height: 57px;
+}
+
+.square,
+.square:active {
+	background: #c3c3c3;
+}
+
+.square {
+	box-shadow:
+		inset calc(-1 * var(--u)) calc(-1 * var(--u)) 0 #262626,
+		inset var(--u) var(--u) 0 #f0f0f0,
+		inset calc(-2 * var(--u)) calc(-2 * var(--u)) 0 #7e7e7e;
+}
+
+.square:active {
+	box-shadow:
+		inset var(--u) var(--u) 0 #262626,
+		inset calc(-1 * var(--u)) calc(-1 * var(--u)) 0 #f0f0f0,
+		inset calc(2 * var(--u)) calc(2 * var(--u)) 0 #7e7e7e;
+}
+
+.square[hidden] {
+	display: none;
+}
+
+/* Croix en pixels (Utility Icons / Close, 17 × 17) */
+.square--close::after {
+	content: "";
+	position: absolute;
+	left: 17px;
+	top: 18px;
+	width: 17px;
+	height: 17px;
+	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 17'%3E%3Cpath d='M2 1h2v3H2zM2 13h2v3H2zM13 1h2v3h-2zM13 13h2v3h-2zM4 4h2v3H4zM4 10h2v3H4zM11 4h2v3h-2zM11 10h2v3h-2zM6 7h5v3H6z'/%3E%3C/svg%3E") no-repeat;
+}
+
+.square--keypad img {
+	position: absolute;
+	left: 10px;
+	top: 8px;
+	width: 33px;
+	height: 32px;
+	object-fit: cover;
+}
+
+.square--arrow {
+	width: 50px;
+	height: 50px;
+}
+
+.pixel-arrow {
+	position: absolute;
+	left: 16px;
+	top: 11px;
+	width: 13px;
+	height: 23px;
+	fill: #000;
+}
+
+.pixel-arrow--left {
+	left: 15px;
+	transform: scaleX(-1);
+}
+
+/* ---------- Étape 1 : chiffres à toucher ---------- */
+
+.digit-btn {
+	width: 93px;
+	height: 165px;
+}
+
+.digit-btn .digit {
+	display: block;
+}
+
+/* ---------- Radio ---------- */
+
+.station {
+	left: 93px;
+	top: 140px;
+	width: 657px;
+	height: 110px;
+	background: var(--ecran);
+}
+
+.station__name {
+	left: 20px;
+	top: 21px;
+	font-size: 60px;
+	line-height: normal;
+	white-space: nowrap;
+}
+
+.station__mhz {
+	left: 554px;
+	top: 35px;
+	font-size: 45px;
+	line-height: normal;
+}
+
+/* ---------- Clavier ---------- */
+
+/* Écran et bouton valider : relief d’une ligne de 1px, face #d9d9d9 */
+.keypad__screen,
+.keypad__ok {
+	border: 1px solid transparent;
+	background: var(--ecran) padding-box;
+	box-shadow:
+		inset -1px -1px 0 #000,
+		inset 1px 1px 0 #fff,
+		inset -2px -2px 0 var(--gris-fonce),
+		inset 2px 2px 0 var(--gris-clair);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.keypad__screen {
+	left: 348px;
+	top: 26px;
+	width: 120px;
+	height: 69px;
+	font-size: 20px;
+}
+
+.keypad__screen.is-wrong {
+	color: #c00;
+}
+
+.keypad__ok {
+	left: 285px;
+	top: 295px;
+	width: 274px;
+	height: 69px;
+	font-size: 32px;
+}
+
+.keypad__ok:active {
+	box-shadow:
+		inset 1px 1px 0 #000,
+		inset -1px -1px 0 #fff,
+		inset 2px 2px 0 var(--gris-fonce),
+		inset -2px -2px 0 var(--gris-clair);
+}
+
+/* Touches : deux rangées de cinq, face claire 44 × 44 */
+.keypad {
+	left: 216px;
+	top: 124px;
+	display: grid;
+	grid-template-columns: repeat(5, 62px);
+	grid-auto-rows: 62px;
+	column-gap: 26px;
+	row-gap: 17px;
+}
+
+.key {
+	position: relative;
+	width: 62px;
+	height: 62px;
+	padding: 6px 12px 12px 6px;
+	font-size: 32px;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.key,
+.key:active {
+	background: var(--ecran);
+}

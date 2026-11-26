@@ -1,0 +1,84 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="267" height="70" viewBox="0 0 267 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Slider/Snapping" clip-path="url(#clip0_0_316)">
+<g id="Slider/Range">
+<g id="Rectangle" filter="url(#filter0_iiii_0_316)">
+<rect y="11.8066" width="267" height="6.74663" fill="#BFBFBF"/>
+</g>
+<g id="Vector" filter="url(#filter1_iiiiii_0_316)">
+<path d="M123.88 26.9865V0H142.433V26.9865H140.747V28.6732H139.06V30.3598H137.373V32.0465H135.687V33.7332H134V35.4198H132.313V33.7332H130.627V32.0465H128.94V30.3598H127.253V28.6732H125.567V26.9865H123.88Z" fill="#BFBFBF"/>
+</g>
+<rect id="Rectangle 2.2" x="8.43329" y="37.1065" width="1.68666" height="3.37332" fill="black"/>
+<rect id="Rectangle 2.3" x="256.88" y="37.1065" width="1.68666" height="3.37332" fill="black"/>
+</g>
+<path id="Rectangle 2.9" d="M4.5001 71V70.4541H6.18676L4.5001 71Z" fill="black"/>
+<rect id="Rectangle 2.3_2" x="45.5398" y="37.1065" width="1.68666" height="3.37332" fill="black"/>
+<rect id="Rectangle 2.4" x="82.6464" y="37.1065" width="1.68666" height="3.37332" fill="black"/>
+<rect id="Rectangle 2.5" x="119.753" y="37.1065" width="1.68666" height="3.37332" fill="black"/>
+<rect id="Rectangle 2.6" x="156.859" y="37.1065" width="1.68666" height="3.37332" fill="black"/>
+<rect id="Rectangle 2.7" x="193.966" y="37.1065" width="1.68666" height="3.37332" fill="black"/>
+<rect id="Rectangle 2.8" x="231.072" y="37.1065" width="1.68666" height="3.37332" fill="black"/>
+</g>
+<defs>
+<filter id="filter0_iiii_0_316" x="0" y="11.8066" width="267" height="6.74663" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="3.37332" dy="3.37332"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_316"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-3.37332" dy="-3.37332"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.87451 0 0 0 0 0.87451 0 0 0 0 0.87451 0 0 0 1 0"/>
+<feBlend mode="normal" in2="effect1_innerShadow_0_316" result="effect2_innerShadow_0_316"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="1.68666" dy="1.68666"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.501961 0 0 0 0 0.501961 0 0 0 0 0.501961 0 0 0 1 0"/>
+<feBlend mode="normal" in2="effect2_innerShadow_0_316" result="effect3_innerShadow_0_316"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-1.68666" dy="-1.68666"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+<feBlend mode="normal" in2="effect3_innerShadow_0_316" result="effect4_innerShadow_0_316"/>
+</filter>
+<filter id="filter1_iiiiii_0_316" x="123.88" y="0" width="18.5532" height="35.4198" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="3.37332" dy="3.37332"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.858824 0 0 0 0 0.858824 0 0 0 0 0.858824 0 0 0 1 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_316"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="3.37332"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.858824 0 0 0 0 0.858824 0 0 0 0 0.858824 0 0 0 1 0"/>
+<feBlend mode="normal" in2="effect1_innerShadow_0_316" result="effect2_innerShadow_0_316"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-3.37332"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.501961 0 0 0 0 0.501961 0 0 0 0 0.501961 0 0 0 1 0"/>
+<feBlend mode="normal" in2="effect2_innerShadow_0_316" result="effect3_innerShadow_0_316"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="1.68666"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+<feBlend mode="normal" in2="effect3_innerShadow_0_316" result="effect4_innerShadow_0_316"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="1.68666" dy="1.68666"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+<feBlend mode="normal" in2="effect4_innerShadow_0_316" result="effect5_innerShadow_0_316"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-1.68666"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"/>
+<feBlend mode="normal" in2="effect5_innerShadow_0_316" result="effect6_innerShadow_0_316"/>
+</filter>
+<clipPath id="clip0_0_316">
+<rect width="267" height="70" fill="white"/>
+</clipPath>
+</defs>
+</svg>

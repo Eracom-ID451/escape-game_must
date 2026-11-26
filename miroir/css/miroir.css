@@ -1,0 +1,471 @@
+/*
+	Miroir – bureau et applications. Maquettes Figma 1024 × 768.
+	À charger après ../shared/css/win95.css.
+*/
+
+.miroir {
+	--stage-w: 1024px;
+	--stage-h: 768px;
+}
+
+.miroir .stage {
+	background: #bdbdbd;
+}
+
+.stage > * {
+	position: absolute;
+}
+
+/* ---------- Bureau ---------- */
+
+.desk-title {
+	left: 14px;
+	top: 12px;
+	width: 1000px;
+	height: 42px;
+	padding-left: 17px;
+	display: flex;
+	align-items: center;
+	background: var(--titre);
+	font-size: 30.65px;
+	font-weight: 400;
+	color: #fff;
+}
+
+.desk-clock {
+	left: 500px;
+	top: 51px;
+	font-size: 48px;
+	line-height: normal;
+	color: #000;
+}
+
+.btn--must {
+	--u: 1.805px;
+	left: 851px;
+	top: 60.66px;
+	width: 137.15px;
+	height: 45.11px;
+	font-size: 24px;
+}
+
+/* Panneau d’icônes : deux colonnes, six rangées */
+.icons {
+	left: 12px;
+	top: 112px;
+	width: 141px;
+	height: 404px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: repeat(6, 1fr);
+	border: 3px solid #4d4d4d;
+	background: #4d4d4d;
+	gap: 3px;
+}
+
+.icons__cell {
+	background: #bdbdbd;
+	box-shadow: inset 2px 2px 0 #fff;
+}
+
+.icon {
+	position: absolute;
+	left: var(--l);
+	top: var(--t);
+	width: var(--w);
+	height: var(--h);
+	overflow: hidden;
+}
+
+.icon img {
+	position: absolute;
+	max-width: none;
+}
+
+.icon:active {
+	filter: brightness(0.8);
+}
+
+.icon--weather {
+	opacity: 0.73;
+}
+
+.icon__badge {
+	position: absolute;
+	left: 60px;
+	top: 252px;
+	width: 13px;
+	height: 13px;
+	background: red;
+	color: #fff;
+	font-size: 13px;
+	line-height: 13px;
+	text-align: center;
+	pointer-events: none;
+}
+
+.desk-panel {
+	left: 12px;
+	top: 524px;
+	width: 136px;
+	height: 181px;
+	box-shadow:
+		inset 1px 1px 0 #000,
+		inset -2px -2px 0 #fff;
+}
+
+.desk-picture {
+	left: 158px;
+	top: 109px;
+	border-top: 5px solid #4d4d4d;
+	border-bottom: 5px solid #4d4d4d;
+}
+
+/* ---------- Fenêtres ---------- */
+
+.app,
+.dialog {
+	inset: 0;
+}
+
+.app[hidden],
+.dialog[hidden] {
+	display: none;
+}
+
+/* Application plein écran : barre de titre (--u = 3.667px) et contenu */
+.app {
+	--u: 3.667px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.app--gray {
+	background: var(--gris);
+}
+
+.app > .titlebar {
+	left: 0;
+	right: 0;
+	top: 0;
+	padding-left: 18px;
+}
+
+.app .titlebar__title {
+	font-size: 30px;
+}
+
+.app > :not(.titlebar) {
+	position: absolute;
+}
+
+.titlebar__btn {
+	cursor: pointer;
+}
+
+/* Maps */
+.map {
+	left: 31px;
+	top: 116px;
+	width: 955px;
+	height: 595px;
+	overflow: hidden;
+}
+
+.map img {
+	position: absolute;
+	max-width: none;
+	left: -20.47%;
+	width: 140.95%;
+	height: 100%;
+}
+
+/* Météo */
+.app--meteo {
+	--u: 2.333px;
+}
+
+.app--meteo > .titlebar {
+	padding-left: 13px;
+}
+
+.app--meteo .titlebar__title {
+	font-size: 20px;
+}
+
+.city {
+	--u: 2.314px;
+	width: 347.07px;
+	height: 309.14px;
+}
+
+.city .titlebar {
+	left: 6.94px;
+	right: 6.94px;
+	top: 6.94px;
+	height: 41.65px;
+	padding-left: 6.78px;
+}
+
+.city .titlebar__title {
+	font-size: 15.63px;
+}
+
+.city table {
+	position: absolute;
+	left: 56.5px;
+	top: 77.49px;
+	border-collapse: collapse;
+	font-size: 12.91px;
+	line-height: normal;
+	color: #000;
+}
+
+.city td {
+	height: 30px;
+	padding: 0;
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+.city td:first-child {
+	width: 163px;
+}
+
+/* Boîte mail */
+.mail {
+	left: 47px;
+	width: 939px;
+	height: 122px;
+	color: #fff;
+}
+
+.mail__head {
+	height: 41px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 10px 0 14px;
+	background: var(--titre);
+	font-size: 24px;
+}
+
+.mail__date {
+	font-size: 17.62px;
+}
+
+.mail__body {
+	position: relative;
+	height: 81px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding-left: 20px;
+	background: var(--gris);
+	font-size: 24px;
+	white-space: nowrap;
+}
+
+.mail__subject {
+	font-size: 39.11px;
+}
+
+.btn--read {
+	--u: 1.432px;
+	right: 20px;
+	top: 22.6px;
+	width: 108.83px;
+	height: 35.8px;
+	font-size: 15.75px;
+	color: #000;
+}
+
+.message__from {
+	left: 22px;
+	top: 70px;
+	font-size: 20px;
+	color: #000;
+}
+
+.message__text {
+	left: 21px;
+	top: 151px;
+	width: 938px;
+	font-size: 36px;
+	line-height: normal;
+	color: #000;
+}
+
+.message__date {
+	right: 23px;
+	top: 673px;
+	font-size: 27.79px;
+	color: #000;
+}
+
+/* Calendrier */
+.calendar__month {
+	left: 426px;
+	top: 103px;
+	width: 168px;
+	height: 83px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 64px;
+	color: #000;
+}
+
+.calendar {
+	left: 185px;
+	top: 161px;
+	width: 660px;
+	border-collapse: collapse;
+	font-size: 35px;
+	color: #000;
+}
+
+.calendar th,
+.calendar td {
+	width: 84px;
+	height: 85px;
+	padding: 0;
+	font-weight: 400;
+	text-align: center;
+}
+
+.calendar th:first-child,
+.calendar td:first-child {
+	padding-left: 35px;
+	width: 119px;
+}
+
+.calendar tbody tr {
+	border-top: 1px solid #555;
+}
+
+/* Jeu de carte */
+.cards {
+	left: 24.44px;
+	top: 120px;
+	width: 979.56px;
+	height: 551px;
+}
+
+/* Internet */
+.internet__frame {
+	left: 76px;
+	top: 381px;
+}
+
+.internet__icon {
+	left: 115px;
+	top: 365px;
+	width: 42px;
+	height: 47.39px;
+	overflow: hidden;
+}
+
+.internet__icon img {
+	position: absolute;
+	max-width: none;
+	left: -24.23%;
+	top: -25%;
+	width: 151.03%;
+	height: 145.45%;
+}
+
+.internet__label {
+	left: 165px;
+	top: 371px;
+	font-size: 30px;
+	color: #fff;
+}
+
+.internet__cursor {
+	left: 904px;
+	top: 417px;
+}
+
+/* ---------- Dialogues ---------- */
+
+.dialog .window {
+	background: var(--gris);
+}
+
+/* Message d’introduction (--u = 5.66px) */
+.window--intro {
+	--u: 5.66px;
+	left: 87px;
+	top: 79px;
+	width: 849px;
+	height: 566px;
+}
+
+.window--intro .titlebar {
+	padding-left: 15.24px;
+}
+
+.window--intro .titlebar__title {
+	font-size: 49.37px;
+}
+
+.intro__text {
+	position: absolute;
+	left: 45px;
+	top: 164px;
+	width: 758px;
+	font-size: 32px;
+	line-height: normal;
+	text-align: center;
+	color: #000;
+}
+
+.intro__text p + p {
+	margin-top: 1.2em;
+}
+
+.window--intro .btn--ok {
+	--u: 2.96px;
+	left: 310px;
+	top: 448px;
+	width: 224.96px;
+	height: 74px;
+	font-size: 32.56px;
+}
+
+/* Accès interdit (--u = 2.889px) */
+.window--error {
+	--u: 2.889px;
+	left: 235px;
+	top: 228px;
+	width: 554.67px;
+	height: 312px;
+}
+
+.window--error .dialog__icon {
+	position: absolute;
+	left: 52px;
+	top: 89.56px;
+	width: 92.44px;
+	height: 92.44px;
+	object-fit: cover;
+}
+
+.window--error .dialog__text {
+	position: absolute;
+	left: 179px;
+	top: 118px;
+	font-size: 31.78px;
+	line-height: 37.56px;
+	color: #000;
+	white-space: nowrap;
+}
+
+.window--error .btn--ok {
+	left: 173.33px;
+	top: 207.94px;
+	width: 219.56px;
+	height: 72.22px;
+	font-size: 31.78px;
+}
