@@ -139,7 +139,7 @@
 		<a class="btn btn--desktop btn--plan" href="plan.html">Plan de l’appartement</a>
 
 		<footer class="taskbar">
-			<span class="btn taskbar__start"><img src="assets/icon-windows.png" width="29" height="29" alt="">M.U.S.T</span>
+			<a class="btn taskbar__start" href="index.html"><img src="assets/icon-windows.png" width="29" height="29" alt="">M.U.S.T</a>
 			<span class="taskbar__sep" style="left: 170px"></span>
 			<span class="taskbar__grip" style="left: 178px"></span>
 			<img class="taskbar__icon" src="assets/icon-reveil.png" style="left: 204px; top: 5px" width="38" height="39" alt="">
@@ -173,7 +173,7 @@
 		tick();
 
 		// Statut des stations : « Connecté » et la lettre gagnée une fois la station réussie
-		// (voir js/station.js). Ouvrir menu.html?reset (ou le bouton « Appareils » de l’accueil) remet le jeu à zéro.
+		// (voir js/station.js). Ouvrir menu.html?reset remet le jeu à zéro.
 		const LETTERS = { frigo: "H", aspirateur: "I", miroir: "E", reveil: "C", thermostat: "N" };
 
 		if (new URLSearchParams(location.search).has("reset")) {

@@ -27,7 +27,7 @@ Police : [Recursive](https://www.recursive.design) (SIL OFL), auto-hébergée da
 
 Parcours du prototype Figma :
 
-- `controle/index.html` : accueil (« Hello. ») ; le bouton « Appareils » remet le jeu à zéro et ouvre le menu
+- `controle/index.html` : accueil (« Hello. ») ; le bouton « Appareils » ouvre le menu, le bouton « M.U.S.T » de la barre des tâches y ramène
 - `controle/menu.html` : menu principal ; chaque fenêtre ouvre l’écran de code de sa station, et affiche « Connecté » avec sa lettre (H, I, E, C, N) une fois la station réussie
 - `controle/<station>.html` : saisie du code (Réveil 1448, Frigo 7231, Aspirateur 4530, Miroir 1725, Thermostat 2042, codes du prototype Figma) ; le × ramène au menu
 - `controle/final.html` : « Terminé ! », affiché après la cinquième station réussie
@@ -46,7 +46,7 @@ mountStation(document.querySelector(".stage"), {
 ```
 
 - À la validation, l’événement `station:validate` est émis sur `document` avec `{ id, code, correct }`.
-- Une station réussie est notée dans `localStorage` (clé `must:<id>`). Remise à zéro : bouton « Appareils » de l’accueil, `controle/menu.html?reset`, ou relancer Chrome en navigation privée (voir plus bas).
+- Une station réussie est notée dans `localStorage` (clé `must:<id>`). Remise à zéro : `controle/menu.html?reset`, ou relancer Chrome en navigation privée (voir plus bas).
 
 ## Miroir
 
