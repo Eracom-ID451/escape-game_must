@@ -6,11 +6,27 @@ HTML, CSS et JavaScript sans dépendance. Un dossier par station ; ouvrir son `i
 
 - `controle/` : contrôle (menu principal et saisie des codes des stations), 1920 × 1080
 - `miroir/` : bureau du miroir (mail, météo, maps, calendrier…), 1024 × 768
+- `frigo/` : frigo, 768 × 1024
+- `reveil/` : réveil, 844 × 390
+- `aspirateur/` : aspirateur, 844 × 390
 - `shared/` : police Recursive, styles « Windows 95 » communs (`css/win95.css`) et mise à l’échelle de la scène (`js/stage.js`)
 
 Le thermostat est dans son propre dépôt : <https://eracom-id451.github.io/temp-ctrl/>
 
 Chaque écran est une scène aux dimensions de la maquette Figma, mise à l’échelle de la fenêtre par `shared/js/stage.js`.
+
+## Codes
+
+| Station | Code | Lettre |
+| --- | --- | --- |
+| Réveil | 1448 | C |
+| Frigo | 7231 | H |
+| Aspirateur | 4530 | I |
+| Miroir | 1725 | E |
+| Thermostat | 2042 | N |
+| Énigme bonus | marley | |
+
+Codes du prototype Figma, saisis sur le contrôle. Les cinq lettres forment « CHIEN » : l’icône chien de la barre des tâches donne le nom de Marley, code de l’énigme bonus (accessible une fois les cinq stations réussies).
 
 ## Images
 
@@ -56,11 +72,51 @@ Un seul écran : le bureau. Un élément `data-open="id"` ouvre la fenêtre `#id
 
 ## Mode kiosque (Chrome, macOS)
 
+Une commande par écran, à lancer dans le Terminal de l’ordinateur de la station.
+
+En ligne (GitHub Pages) :
+
 ```sh
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk --incognito --user-data-dir=/tmp/kiosk --noerrdialogs --disable-pinch --overscroll-history-navigation=0 "URL"
+# Contrôle
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk --incognito --user-data-dir=/tmp/kiosk --noerrdialogs --disable-pinch --overscroll-history-navigation=0 "https://eracom-id451.github.io/escape-game_must/controle/index.html"
+
+# Miroir
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk --incognito --user-data-dir=/tmp/kiosk --noerrdialogs --disable-pinch --overscroll-history-navigation=0 "https://eracom-id451.github.io/escape-game_must/miroir/index.html"
+
+# Frigo
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk --incognito --user-data-dir=/tmp/kiosk --noerrdialogs --disable-pinch --overscroll-history-navigation=0 "https://eracom-id451.github.io/escape-game_must/frigo/index.html"
+
+# Réveil
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk --incognito --user-data-dir=/tmp/kiosk --noerrdialogs --disable-pinch --overscroll-history-navigation=0 "https://eracom-id451.github.io/escape-game_must/reveil/index.html"
+
+# Aspirateur
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk --incognito --user-data-dir=/tmp/kiosk --noerrdialogs --disable-pinch --overscroll-history-navigation=0 "https://eracom-id451.github.io/escape-game_must/aspirateur/index.html"
+
+# Thermostat (dépôt temp-ctrl)
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk --incognito --user-data-dir=/tmp/kiosk --noerrdialogs --disable-pinch --overscroll-history-navigation=0 "https://eracom-id451.github.io/temp-ctrl/"
 ```
 
-- `URL` : la page de la station, par exemple `file:///Users/adrien/gitRepos/escape-game_must/miroir/index.html`, ou son adresse GitHub Pages.
+Copie locale, dépôt copié dans `~/Desktop/escape-game_must/` (fonctionne sans réseau) :
+
+```sh
+# Contrôle
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk --incognito --user-data-dir=/tmp/kiosk --noerrdialogs --disable-pinch --overscroll-history-navigation=0 "file://$HOME/Desktop/escape-game_must/controle/index.html"
+
+# Miroir
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk --incognito --user-data-dir=/tmp/kiosk --noerrdialogs --disable-pinch --overscroll-history-navigation=0 "file://$HOME/Desktop/escape-game_must/miroir/index.html"
+
+# Frigo
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk --incognito --user-data-dir=/tmp/kiosk --noerrdialogs --disable-pinch --overscroll-history-navigation=0 "file://$HOME/Desktop/escape-game_must/frigo/index.html"
+
+# Réveil
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk --incognito --user-data-dir=/tmp/kiosk --noerrdialogs --disable-pinch --overscroll-history-navigation=0 "file://$HOME/Desktop/escape-game_must/reveil/index.html"
+
+# Aspirateur
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk --incognito --user-data-dir=/tmp/kiosk --noerrdialogs --disable-pinch --overscroll-history-navigation=0 "file://$HOME/Desktop/escape-game_must/aspirateur/index.html"
+```
+
+Le thermostat n’a pas de copie locale ici (dépôt `temp-ctrl` séparé).
+
 - `--user-data-dir` ouvre une instance séparée : sans lui, si Chrome est déjà ouvert, la commande ouvre seulement un onglet normal.
 - `--noerrdialogs --disable-pinch --overscroll-history-navigation=0` : pas de fenêtres d’erreur, pas de zoom au pincement ni de retour arrière au balayage (écrans tactiles).
 - `--incognito` : rien n’est gardé d’un lancement à l’autre. Quitter et relancer Chrome remet donc toutes les stations à zéro (seul contrôle garde un état, les stations réussies).
