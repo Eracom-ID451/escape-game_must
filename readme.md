@@ -42,3 +42,14 @@ mountStation(document.querySelector(".stage"), {
 ## Miroir
 
 Un seul écran : le bureau. Un élément `data-open="id"` ouvre la fenêtre `#id`, un élément `data-close` ferme la fenêtre qui le contient (`miroir/js/miroir.js`). Le message d’introduction s’affiche au démarrage ; les applications sans écran dans la maquette affichent « Accès interdit ».
+
+## Mode kiosque (Chrome, macOS)
+
+```sh
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --kiosk --user-data-dir=/tmp/kiosk --noerrdialogs --disable-pinch --overscroll-history-navigation=0 "URL"
+```
+
+- `URL` : la page de la station, par exemple `file:///Users/adrien/gitRepos/escape-game_must/miroir/index.html`, ou son adresse GitHub Pages.
+- `--user-data-dir` ouvre une instance séparée : sans lui, si Chrome est déjà ouvert, la commande ouvre seulement un onglet normal.
+- `--noerrdialogs --disable-pinch --overscroll-history-navigation=0` : pas de fenêtres d’erreur, pas de zoom au pincement ni de retour arrière au balayage (écrans tactiles).
+- Quitter : Cmd+Q.
