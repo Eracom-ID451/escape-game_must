@@ -3,8 +3,8 @@
 	À charger après ../shared/css/win95.css et css/controle.css.
 */
 
-.menu {
-	--background: url("../assets/bg-menu.png");
+.menu .stage {
+	background-image: url("../assets/bg-menu.png");
 }
 
 .menu .stage::before {
@@ -318,6 +318,25 @@
 
 .taskbar__icon {
 	object-fit: cover;
+}
+
+/* Énigme bonus verrouillée : icône grisée et barrée, sans lien */
+.taskbar__bonus.is-locked {
+	cursor: default;
+}
+
+.taskbar__bonus.is-locked img {
+	filter: grayscale(1);
+	opacity: 0.4;
+}
+
+.taskbar__bonus.is-locked::after {
+	content: "";
+	position: absolute;
+	inset: 4px;
+	background:
+		linear-gradient(to top right, transparent calc(50% - 2px), #c00 calc(50% - 2px), #c00 calc(50% + 2px), transparent calc(50% + 2px)),
+		linear-gradient(to top left, transparent calc(50% - 2px), #c00 calc(50% - 2px), #c00 calc(50% + 2px), transparent calc(50% + 2px));
 }
 
 .taskbar__clock {

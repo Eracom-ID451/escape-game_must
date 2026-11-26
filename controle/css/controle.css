@@ -106,8 +106,11 @@
 
 /* Réglages par station : fond, position de la fenêtre, recadrage de la photo */
 
+.station--frigo .stage {
+	background-image: url("../assets/bg-frigo.png");
+}
+
 .station--frigo {
-	--background: url("../assets/bg-frigo.png");
 	--win-x: 225px;
 	--win-y: 108px;
 	--win-w: 1525px;
@@ -117,32 +120,44 @@
 	--crop-h: 135.87%;
 }
 
+.station--aspirateur .stage {
+	background-image: url("../assets/bg-aspirateur.png");
+}
+
 .station--aspirateur {
-	--background: url("../assets/bg-aspirateur.png");
 	--crop-x: -45.25%;
 	--crop-y: -3.97%;
 	--crop-w: 186.86%;
 	--crop-h: 116.04%;
 }
 
+.station--miroir .stage {
+	background-image: url("../assets/bg-miroir.png");
+}
+
 .station--miroir {
-	--background: url("../assets/bg-miroir.png");
 	--crop-x: -29.47%;
 	--crop-y: -0.02%;
 	--crop-w: 186.86%;
 	--crop-h: 116.04%;
 }
 
+.station--reveil .stage {
+	background-image: url("../assets/bg-reveil.png");
+}
+
 .station--reveil {
-	--background: url("../assets/bg-reveil.png");
 	--crop-x: -64.57%;
 	--crop-y: -28.65%;
 	--crop-w: 229.5%;
 	--crop-h: 142.53%;
 }
 
+.station--thermostat .stage {
+	background-image: url("../assets/bg-thermostat.png");
+}
+
 .station--thermostat {
-	--background: url("../assets/bg-thermostat.png");
 	--crop-x: -61.02%;
 	--crop-y: -12.23%;
 	--crop-w: 200.69%;

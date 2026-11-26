@@ -9,6 +9,12 @@
 </head>
 <body>
 	<main class="stage"></main>
+	<script>
+		// Verrouillée tant que les cinq stations ne sont pas réussies (voir menu.html)
+		try {
+			if (!["frigo", "aspirateur", "miroir", "reveil", "thermostat"].every((id) => localStorage.getItem(`must:${id}`) === "1")) location.replace("menu.html");
+		} catch (error) {}
+	</script>
 	<script src="../shared/js/stage.js"></script>
 	<script src="js/bonus.js"></script>
 	<script>

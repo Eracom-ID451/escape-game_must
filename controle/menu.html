@@ -142,17 +142,17 @@
 			<a class="btn taskbar__start" href="index.html"><img src="assets/icon-windows.png" width="29" height="29" alt="">M.U.S.T</a>
 			<span class="taskbar__sep" style="left: 170px"></span>
 			<span class="taskbar__grip" style="left: 178px"></span>
-			<img class="taskbar__icon" src="assets/icon-reveil.png" style="left: 204px; top: 5px" width="38" height="39" alt="">
-			<img class="taskbar__icon" src="assets/icon-miroir.png" style="left: 259px; top: 6px" width="46" height="36" alt="">
-			<img class="taskbar__icon" src="assets/icon-aspirateur.png" style="left: 321px; top: 4px" width="43" height="37" alt="">
-			<img class="taskbar__icon" src="assets/icon-frigo.png" style="left: 382px; top: 6px" width="34" height="35" alt="">
-			<img class="taskbar__icon" src="assets/icon-thermostat.png" style="left: 433px; top: 13px" width="49" height="25" alt="">
-			<img class="taskbar__icon" src="assets/icon-capture.png" style="left: 500px; top: 9px" width="35" height="33" alt="">
-			<img class="taskbar__icon" src="assets/icon-camera.png" style="left: 548px; top: 13px" width="50" height="24" alt="">
+			<a class="taskbar__icon" href="reveil.html" style="left: 204px; top: 5px" aria-label="Réveil"><img src="assets/icon-reveil.png" width="38" height="39" alt=""></a>
+			<a class="taskbar__icon" href="miroir.html" style="left: 259px; top: 6px" aria-label="Miroir"><img src="assets/icon-miroir.png" width="46" height="36" alt=""></a>
+			<a class="taskbar__icon" href="aspirateur.html" style="left: 321px; top: 4px" aria-label="Aspirateur"><img src="assets/icon-aspirateur.png" width="43" height="37" alt=""></a>
+			<a class="taskbar__icon" href="frigo.html" style="left: 382px; top: 6px" aria-label="Frigo"><img src="assets/icon-frigo.png" width="34" height="35" alt=""></a>
+			<a class="taskbar__icon" href="thermostat.html" style="left: 433px; top: 13px" aria-label="Thermostat"><img src="assets/icon-thermostat.png" width="49" height="25" alt=""></a>
+			<a class="taskbar__icon" href="plan.html" style="left: 500px; top: 9px" aria-label="Plan de l’appartement"><img src="assets/icon-capture.png" width="35" height="33" alt=""></a>
+			<a class="taskbar__icon" href="camera.html" style="left: 548px; top: 13px" aria-label="Caméra extérieure"><img src="assets/icon-camera.png" width="50" height="24" alt=""></a>
 			<span class="taskbar__sep" style="left: 610px"></span>
 			<span class="taskbar__grip" style="left: 617px"></span>
 			<a class="taskbar__icon" href="chien.html" style="left: 613px; top: 2px" aria-label="Marley"><img src="assets/icon-untitled.png" width="82" height="46" alt=""></a>
-			<a class="taskbar__icon" href="bonus.html" style="left: 674.5px; top: 5.5px" aria-label="Énigme bonus"><img src="assets/icon-help.png" width="40" height="40" alt=""></a>
+			<a class="taskbar__icon taskbar__bonus" href="bonus.html" style="left: 674.5px; top: 5.5px" aria-label="Énigme bonus"><img src="assets/icon-help.png" width="40" height="40" alt=""></a>
 			<span class="taskbar__sep" style="left: 1695px"></span>
 			<img class="taskbar__icon" src="assets/icon-search.png" style="left: 1708px; top: 13px" width="31" height="31" alt="">
 			<img class="taskbar__icon" src="assets/icon-volume.png" style="left: 1747px; top: 13px" width="31" height="31" alt="">
@@ -197,6 +197,14 @@
 				mini.querySelector(".mini__label").textContent = ok ? "Connecté" : "Déconnecté";
 				mini.querySelector(".mini__letter").textContent = ok ? `(${letter})` : "";
 			}
+
+			// Énigme bonus : verrouillée tant que les cinq stations ne sont pas réussies
+			const allSolved = Object.keys(LETTERS).every(solved);
+			const bonus = document.querySelector(".taskbar__bonus");
+			bonus.classList.toggle("is-locked", !allSolved);
+			if (allSolved) bonus.setAttribute("href", "bonus.html");
+			else bonus.removeAttribute("href");
+			bonus.setAttribute("aria-disabled", String(!allSolved));
 		}
 
 		renderStatus();

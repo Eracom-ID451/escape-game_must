@@ -75,7 +75,7 @@ img {
 	height: var(--stage-h, 1080px);
 	transform: translate(-50%, -50%) scale(var(--scale, 1));
 	overflow: hidden;
-	background: var(--background) center / cover no-repeat;
+	background: center / cover no-repeat; /* l’image se règle par page (background-image) */
 }
 
 .logo {
