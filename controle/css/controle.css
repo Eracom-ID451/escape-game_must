@@ -226,3 +226,51 @@
 	left: 236px;
 	width: 393.97px;
 }
+
+/* ---------- Accueil, écran final, Marley ---------- */
+
+.screen-title {
+	position: absolute;
+	font-size: 96px;
+	font-weight: 400;
+	line-height: normal;
+	color: var(--blanc);
+	white-space: nowrap;
+}
+
+/* Fenêtre de texte sans barre de titre */
+.window--text {
+	--u: 4.94px;
+}
+
+.screen-text {
+	position: absolute;
+	font-size: 24px;
+	line-height: normal;
+	color: #000;
+}
+
+.screen-text p + p {
+	margin-top: 1.2em;
+}
+
+.btn--screen {
+	--btn-inset: 9.34px 0 0 9.34px;
+	width: 353.5px;
+	height: 116px;
+	padding: 9.34px 0 0 9.34px;
+	color: var(--noir);
+}
+
+/* Marley et sa réussite : grande fenêtre avec titre */
+.window--marley {
+	--u: 4.94px;
+}
+
+.window--marley .titlebar {
+	padding-left: 20px;
+}
+
+.window--marley .titlebar__title {
+	font-size: 64px;
+}

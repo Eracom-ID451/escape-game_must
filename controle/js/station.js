@@ -19,10 +19,20 @@
 //
 // À la validation, l’événement « station:validate » est émis sur document
 // avec { id, code, correct }. Une station réussie est notée dans localStorage
-// (clé « must:<id> ») et le bouton OK ramène au menu, où elle s’affiche « Connecté ».
+// (clé « must:<id> ») et le bouton OK ramène au menu, où elle s’affiche « Connecté »,
+// ou à l’écran final quand les cinq stations sont réussies.
 // Le bouton × de la fenêtre ramène aussi au menu.
 
 const DIGITS = 4;
+const STATIONS = ["reveil", "frigo", "aspirateur", "miroir", "thermostat"];
+
+function allSolved() {
+	try {
+		return STATIONS.every((id) => localStorage.getItem(`must:${id}`) === "1");
+	} catch (error) {
+		return false;
+	}
+}
 
 const ARROW = `<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="4" width="1" height="8"/><rect x="6.5" y="5" width="1" height="6"/><rect x="7.5" y="6.5" width="1" height="3"/><rect x="8.5" y="7.5" width="1" height="1"/></svg>`;
 
@@ -113,7 +123,12 @@ function mountStation(container, { id, title, solution = "0000", success = "Brav
 	});
 
 	function backToMenu() {
-		location.href = "index.html";
+		location.href = "menu.html";
+	}
+
+	// Une fois les cinq stations réussies, la réussite mène à l’écran final
+	function afterSuccess() {
+		location.href = allSolved() ? "final.html" : "menu.html";
 	}
 
 	function closeError() {
@@ -124,7 +139,7 @@ function mountStation(container, { id, title, solution = "0000", success = "Brav
 	// OK et × : le dialogue d’erreur se ferme ; le dialogue de réussite
 	// et la fenêtre de la station ramènent au menu principal
 	errorDialog.querySelectorAll(".btn--ok, .titlebar__btn--close").forEach((button) => button.addEventListener("click", closeError));
-	successDialog.querySelectorAll(".btn--ok, .titlebar__btn--close").forEach((button) => button.addEventListener("click", backToMenu));
+	successDialog.querySelectorAll(".btn--ok, .titlebar__btn--close").forEach((button) => button.addEventListener("click", afterSuccess));
 	container.querySelector(".window--station .titlebar__btn--close").addEventListener("click", backToMenu);
 
 	render();

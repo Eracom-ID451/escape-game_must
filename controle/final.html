@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>M.U.S.T – Terminé</title>
+	<link rel="stylesheet" href="../shared/css/win95.css">
+	<link rel="stylesheet" href="css/controle.css">
+	<style>
+		.stage {
+			background: #fff;
+		}
+
+		/* Fond « colline verte » */
+		.stage::before {
+			left: -43px;
+			top: -6px;
+			width: 1982px;
+			height: 1115px;
+			background: url("assets/bg-final.png") center / cover no-repeat;
+			mix-blend-mode: normal;
+		}
+
+		.logo,
+		.screen-title {
+			color: var(--noir);
+		}
+	</style>
+</head>
+<body>
+	<main class="stage">
+		<p class="logo">M.U.S.T</p>
+
+		<h1 class="screen-title" style="left: 722px; top: 256px">Terminé !</h1>
+
+		<section class="window window--text relief-window" style="left: 722px; top: 430px; width: 564px; height: 227px"></section>
+		<p class="screen-text" style="left: 764px; top: 483px; width: 490px">M.U.S.T (Maison Urbaine Super Technologique) vous autorise à sortir de chez vous car vous avez connecté tous les appareils.</p>
+
+		<a class="btn btn--screen" href="menu.html" style="left: 715px; top: 728px">Bravo</a>
+	</main>
+	<script src="../shared/js/stage.js"></script>
+</body>
+</html>

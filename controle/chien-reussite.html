@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>M.U.S.T – Énigme bonus réussie</title>
+	<link rel="stylesheet" href="../shared/css/win95.css">
+	<link rel="stylesheet" href="css/controle.css">
+	<style>
+		/* Image de Marley agrandie et recadrée comme dans la maquette */
+		.stage {
+			background: url("assets/bg-chien.png") 0 -360.7px / 2705.8px 1521.9px no-repeat;
+		}
+
+		.stage::before {
+			display: none;
+		}
+
+		.reussite__smiley {
+			position: absolute;
+			left: 206px;
+			top: 493px;
+			width: 151.72px;
+			height: 151.72px;
+		}
+
+		.reussite__text {
+			left: 437px;
+			top: 493px;
+			width: 588px;
+			font-size: 40px;
+		}
+
+		.btn--reussite {
+			--u: 5.074px;
+			left: 425px;
+			top: 686px;
+			width: 385.63px;
+			height: 126.85px;
+			font-size: 64px;
+			color: var(--noir);
+		}
+	</style>
+</head>
+<body>
+	<main class="stage">
+		<p class="logo" style="left: 45px; top: 40px">M.U.S.T</p>
+
+		<section class="window window--marley relief-window" style="left: 144px; top: 291px; width: 949px; height: 580px" aria-labelledby="reussite-title">
+			<header class="titlebar">
+				<h1 class="titlebar__title" id="reussite-title">Enigme bonus</h1>
+				<span class="titlebar__btn titlebar__btn--min relief-button" aria-hidden="true"></span>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/icon-maximize.svg" alt=""></span>
+				<a class="titlebar__btn titlebar__btn--close relief-button" href="menu.html" aria-label="Fermer"><img src="assets/icon-close.svg" alt=""></a>
+			</header>
+		</section>
+
+		<img class="reussite__smiley" src="assets/smiley.png" alt="">
+		<p class="screen-text reussite__text">BRAVO ! Vous avez résolu l’énigme bonus. Marley est fière de vous !</p>
+		<a class="btn btn--reussite" href="menu.html">OK</a>
+	</main>
+	<script src="../shared/js/stage.js"></script>
+</body>
+</html>

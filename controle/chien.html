@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>M.U.S.T – Marley</title>
+	<link rel="stylesheet" href="../shared/css/win95.css">
+	<link rel="stylesheet" href="css/controle.css">
+	<style>
+		.stage {
+			background-image: url("assets/bg-chien.png");
+		}
+
+		.stage::before {
+			top: -43px;
+		}
+	</style>
+</head>
+<body>
+	<main class="stage">
+		<section class="window window--marley relief-window" style="left: 111px; top: 72px; width: 660px; height: 258px" aria-labelledby="marley-title">
+			<header class="titlebar">
+				<h1 class="titlebar__title" id="marley-title">Marley</h1>
+				<span class="titlebar__btn titlebar__btn--min relief-button" aria-hidden="true"></span>
+				<span class="titlebar__btn titlebar__btn--max relief-button" aria-hidden="true"><img src="assets/icon-maximize.svg" alt=""></span>
+				<a class="titlebar__btn titlebar__btn--close relief-button" href="menu.html" aria-label="Fermer"><img src="assets/icon-close.svg" alt=""></a>
+			</header>
+		</section>
+		<p class="screen-text" style="left: 208px; top: 236px">Est actuellement ici : la cuisine</p>
+	</main>
+	<script src="../shared/js/stage.js"></script>
+</body>
+</html>

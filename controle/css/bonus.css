@@ -1,0 +1,181 @@
+/*
+	Énigme bonus (reprise de la v0) – maquette Figma 1920 × 1080.
+	À charger après ../shared/css/win95.css.
+*/
+
+.stage {
+	background-image: url("../assets/bg-chien.png");
+}
+
+.logo {
+	left: 57px;
+	top: 52px;
+	padding: 0;
+}
+
+/* ---------- Fenêtre principale ---------- */
+
+.bonus {
+	--u: 4.94px;
+	left: 253px;
+	top: 92px;
+	width: 1530px;
+	height: 935px;
+}
+
+.bonus .titlebar {
+	padding-left: 33px;
+}
+
+.bonus__photo {
+	position: absolute;
+	left: 121px;
+	top: 201px;
+	width: 435px;
+	height: 394px;
+	overflow: hidden;
+}
+
+/* Recadrage de l’image de fond, comme dans la maquette */
+.bonus__photo img {
+	position: absolute;
+	left: -95%;
+	top: -66.94%;
+	width: 274.62%;
+	height: 170.55%;
+	max-width: none;
+}
+
+.code__title {
+	position: absolute;
+	left: 717px;
+	top: 201px;
+	font-size: 64px;
+	font-weight: 400;
+	line-height: normal;
+	white-space: nowrap;
+}
+
+.code__cells {
+	position: absolute;
+	left: 717px;
+	top: 305px;
+	display: flex;
+	gap: 20px;
+}
+
+.cell {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 99px;
+	height: 93px;
+	background: var(--blanc);
+	font-size: 40px;
+	line-height: 48px;
+	color: #000;
+}
+
+.cell:empty::before {
+	content: "_";
+}
+
+.cell.is-active {
+	border: 6px solid #000;
+}
+
+.code.is-wrong .cell { background: #ffb3b3; }
+.code.is-correct .cell { background: #b3ffb8; }
+
+.code__hint {
+	position: absolute;
+	left: 720px;
+	top: 419px;
+	font-size: 20px;
+	line-height: normal;
+	white-space: nowrap;
+}
+
+.btn--validate {
+	left: 889px;
+	top: 448px;
+	width: 353.5px;
+	height: 116px;
+}
+
+/* ---------- Clavier ---------- */
+
+.keyboard {
+	--u: 4.94px;
+	left: 135px;
+	top: 670px;
+	width: 1411px;
+	height: 398px;
+	padding-top: 17px;
+}
+
+.keyboard__row {
+	display: flex;
+	gap: 6px;
+}
+
+.keyboard__row--1 {
+	gap: 7px;
+	padding-left: 133px;
+}
+
+.keyboard__row--2 {
+	padding-left: 198px;
+}
+
+.keyboard__row--3 {
+	padding-left: 18px;
+}
+
+/* Touche : relief inséré de 9.34px dans la zone tactile, comme dans la maquette */
+.key {
+	--u: 9.34px;
+	position: relative;
+	flex: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 120px;
+	height: 120px;
+	isolation: isolate;
+	font-size: 40px;
+	line-height: normal;
+	color: #000;
+}
+
+.key::before {
+	content: "";
+	position: absolute;
+	inset: var(--u);
+	z-index: -1;
+	background: var(--gris);
+	box-shadow:
+		inset calc(-1 * var(--u)) calc(-1 * var(--u)) 0 #000,
+		inset var(--u) var(--u) 0 #fff,
+		inset calc(-2 * var(--u)) calc(-2 * var(--u)) 0 var(--gris-fonce),
+		inset calc(2 * var(--u)) calc(2 * var(--u)) 0 var(--gris-clair);
+}
+
+.key:active::before,
+.key.is-pressed::before {
+	box-shadow:
+		inset var(--u) var(--u) 0 #000,
+		inset calc(-1 * var(--u)) calc(-1 * var(--u)) 0 #fff,
+		inset calc(2 * var(--u)) calc(2 * var(--u)) 0 var(--gris-fonce),
+		inset calc(-2 * var(--u)) calc(-2 * var(--u)) 0 var(--gris-clair);
+}
+
+.key--wide {
+	width: 229px;
+}
+
+.key .arrow {
+	position: relative;
+	width: 43px;
+	height: 43px;
+}

@@ -25,22 +25,28 @@ Police : [Recursive](https://www.recursive.design) (SIL OFL), auto-hébergée da
 
 ## Contrôle
 
-Les cinq écrans de code partagent `controle/js/station.js`. Le titre, le code et le message de réussite se règlent dans chaque page :
+Parcours du prototype Figma :
+
+- `controle/index.html` : accueil (« Hello. ») ; le bouton « Appareils » remet le jeu à zéro et ouvre le menu
+- `controle/menu.html` : menu principal ; chaque fenêtre ouvre l’écran de code de sa station, et affiche « Connecté » avec sa lettre (H, I, E, C, N) une fois la station réussie
+- `controle/<station>.html` : saisie du code (Réveil 1448, Frigo 7231, Aspirateur 4530, Miroir 1725, Thermostat 2042, codes du prototype Figma) ; le × ramène au menu
+- `controle/final.html` : « Terminé ! », affiché après la cinquième station réussie
+- `controle/plan.html` : plan de l’appartement (bouton du menu)
+- `controle/chien.html` et `controle/bonus.html` : Marley et l’énigme bonus (icônes chien et livre de la barre des tâches), code « marley », puis `chien-reussite.html`
+
+Les cinq écrans de code partagent `controle/js/station.js` ; le titre, le code et le message de réussite se règlent dans chaque page :
 
 ```js
 mountStation(document.querySelector(".stage"), {
 	id: "frigo",
 	title: "Frigo",
-	solution: "0000",
+	solution: "7231",
 	success: "Bravo (H)\nVous avez débloqué\nle frigo",
 });
 ```
 
 - À la validation, l’événement `station:validate` est émis sur `document` avec `{ id, code, correct }`.
-- Une station réussie est notée dans `localStorage` (clé `must:<id>`) ; le bouton OK du dialogue ramène au menu.
-- Le menu affiche alors la station « Connecté » avec sa lettre (H, I, E, C, N). Le bouton × d’une fenêtre ramène aussi au menu.
-- Remise à zéro entre deux groupes : ouvrir `controle/index.html?reset`.
-- `controle/plan.html` : plan de l’appartement (bouton « Plan de l’appartement » du menu).
+- Une station réussie est notée dans `localStorage` (clé `must:<id>`). Remise à zéro : bouton « Appareils » de l’accueil, `controle/menu.html?reset`, ou relancer Chrome en navigation privée (voir plus bas).
 
 ## Miroir
 
