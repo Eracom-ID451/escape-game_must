@@ -136,7 +136,7 @@
 /* Application plein écran : barre de titre (--u = 3.667px) et contenu */
 .app {
 	--u: 3.667px;
-	background: #fff;
+	background: var(--gris);
 	overflow: hidden;
 }
 
