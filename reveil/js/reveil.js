@@ -8,7 +8,7 @@
 // L’heure du réveil se compose au fil des étapes : 02:01 → 12:08 → 14:08 → 14:48.
 
 const DATE = "1208";
-const ANSWERS = { temperature: ["4", "14"], radio: ["4"] };
+const ANSWERS = { temperature: ["4"], radio: ["4"] };
 
 // Heure, date, température et fréquence affichées à chaque étape (0 à 3)
 const CLOCK = ["0201", "1208", "1408", "1448"];
@@ -119,7 +119,6 @@ function showScreen(id) {
 	stopTemperature();
 	if (id === "temperature") startTemperature();
 	if (id === "radio" && current?.id === "accueil") showStation(0);
-	if (id === "code") codeLocked = false;
 }
 
 document.addEventListener("click", (event) => {
@@ -174,6 +173,7 @@ document.getElementById("reset").addEventListener("click", () => {
 	step = 0;
 	codeValue = INITIAL.split("");
 	codeButtons.forEach((button, i) => setDigit(button.firstElementChild, codeValue[i]));
+	updateCodeFeedback();
 	render();
 });
 
@@ -181,19 +181,35 @@ document.getElementById("reset").addEventListener("click", () => {
 
 const codeButtons = [...document.querySelectorAll("#code .digit-btn")];
 let codeValue = INITIAL.split("");
-let codeLocked = false;
+
+// Seuls le premier et le dernier chiffre trouvés passent au vert.
+function updateCodeFeedback() {
+	codeButtons.forEach((button, i) => {
+		const solved = (i === 0 && codeValue[0] === "1") || (i === 3 && codeValue[3] === "8");
+		button.firstElementChild.classList.toggle("is-green", solved);
+	});
+}
 
 codeButtons.forEach((button, i) => {
 	setDigit(button.firstElementChild, codeValue[i]);
 	button.addEventListener("click", () => {
-		if (codeLocked) return;
 		codeValue[i] = String((Number(codeValue[i]) + 1) % 10);
 		setDigit(button.firstElementChild, codeValue[i]);
-		if (codeValue.join("") === DATE) {
-			codeLocked = true;
-			succeed(1);
-		}
+		updateCodeFeedback();
 	});
+});
+
+updateCodeFeedback();
+
+// Le joueur quitte l’écran quand les deux chiffres sont verts ;
+// seuls le premier et le dernier chiffre comptent pour débloquer l’étape suivante.
+document.querySelector("#code .square--close").addEventListener("click", (event) => {
+	event.stopPropagation();
+	if (codeValue[0] === "1" && codeValue[3] === "8") {
+		step = 1;
+		render();
+	}
+	showScreen("accueil");
 });
 
 // ---------- Étape 2 : la température défile ----------
@@ -248,7 +264,7 @@ document.getElementById("radio-next").addEventListener("click", () => showStatio
 // ---------- Clavier ----------
 
 const keypadScreen = document.getElementById("keypad-screen");
-const MAX_LENGTH = 2;
+const MAX_LENGTH = 1;
 let keypadFor = "temperature";
 let typed = "";
 
