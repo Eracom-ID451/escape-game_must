@@ -264,6 +264,7 @@
 	background: var(--gris);
 	font-size: 24px;
 	white-space: nowrap;
+	color: #000;
 }
 
 .mail__subject {
