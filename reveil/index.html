@@ -127,6 +127,17 @@
 			<button type="button" class="keypad__ok" id="keypad-ok">valider</button>
 		</section>
 
+		<!-- Message M.U.S.T au démarrage ; OK ou × le ferme -->
+		<div class="intro" id="intro">
+			<section class="window intro__window relief-window" role="alertdialog" aria-labelledby="intro-title" aria-describedby="intro-text">
+				<header class="titlebar">
+					<h2 class="titlebar__title" id="intro-title">M.U.S.T.</h2>
+					<button type="button" class="titlebar__btn titlebar__btn--close relief-button" data-close-intro aria-label="Fermer"><img src="assets/btn-xs-close.svg" alt=""></button>
+				</header>
+				<p class="intro__text" id="intro-text">Vous êtes les maîtres du temps, l’heure doit passer au vert.</p>
+				<button type="button" class="btn intro__ok" data-close-intro>OK</button>
+			</section>
+		</div>
 	</main>
 	<script src="../shared/js/stage.js"></script>
 	<script src="js/reveil.js"></script>

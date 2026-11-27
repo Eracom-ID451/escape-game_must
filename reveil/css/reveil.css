@@ -329,3 +329,51 @@
 .key:active {
 	background: var(--ecran);
 }
+
+/* ---------- Message M.U.S.T au démarrage ---------- */
+
+.intro {
+	inset: 0;
+	z-index: 10;
+	background: rgb(0 0 0 / 0.25);
+}
+
+.intro[hidden] {
+	display: none;
+}
+
+.intro__window {
+	--u: 2px;
+	left: 122px;
+	top: 85px;
+	width: 600px;
+	height: 220px;
+}
+
+.intro__window .titlebar {
+	padding-left: 8px;
+}
+
+.intro__window .titlebar__title {
+	font-size: 18px;
+}
+
+.intro__text {
+	position: absolute;
+	left: 40px;
+	right: 40px;
+	top: 72px;
+	font-size: 24px;
+	line-height: 32px;
+	text-align: center;
+}
+
+.intro__ok {
+	--u: 2px;
+	--btn-inset: 2px;
+	left: 240px;
+	top: 160px;
+	width: 120px;
+	height: 40px;
+	font-size: 22px;
+}
