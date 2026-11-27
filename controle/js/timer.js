@@ -12,6 +12,10 @@
 
 const TIMER_DURATION = 20 * 60 * 1000;
 
+// TEST : le temps passe 10 fois plus vite (20 minutes en 2 minutes). Remettre à false avant la porte ouverte !
+const TIME_RUNS_10X = true;
+const TIMER_SPEED = TIME_RUNS_10X ? 10 : 1;
+
 // Couleur selon le temps restant (à ajuster ici)
 const TIMER_YELLOW = 10 * 60 * 1000; // vert jusqu’à 10:00, puis jaune
 const TIMER_RED = 2 * 60 * 1000; // jaune jusqu’à 2:00, puis rouge
@@ -69,7 +73,7 @@ function timerRemaining() {
 	if (done !== null) return done;
 	const start = timerRead("must:start");
 	if (start === null) return TIMER_DURATION;
-	return TIMER_DURATION - (Date.now() - start);
+	return TIMER_DURATION - (Date.now() - start) * TIMER_SPEED;
 }
 
 function timerExpired() {
