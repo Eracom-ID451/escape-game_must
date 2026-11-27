@@ -13,7 +13,7 @@
 const TIMER_DURATION = 20 * 60 * 1000;
 
 // TEST : le temps passe 10 fois plus vite (20 minutes en 2 minutes). Remettre à false avant la porte ouverte !
-const TIME_RUNS_10X = true;
+const TIME_RUNS_10X = false;
 const TIMER_SPEED = TIME_RUNS_10X ? 10 : 1;
 
 // Couleur selon le temps restant (à ajuster ici)
