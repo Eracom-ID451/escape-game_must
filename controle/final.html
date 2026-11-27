@@ -26,6 +26,13 @@
 			font-weight: 700;
 		}
 
+		/* Icône livre « ? » de l’énigme bonus (comme dans la barre des tâches) */
+		.final__icon {
+			width: 56px;
+			height: 56px;
+			margin-right: 20px;
+		}
+
 		.final__time[hidden] {
 			display: none;
 		}
@@ -46,7 +53,7 @@
 		<p class="screen-text" style="left: 764px; top: 483px; width: 490px">M.U.S.T (Maison Urbaine Super Technologique) vous autorise à sortir de chez vous car vous avez connecté tous les appareils.</p>
 		<p class="screen-text final__time" id="final-time" style="left: 764px; top: 640px; width: 490px" hidden></p>
 
-		<a class="btn btn--screen" id="final-next" href="menu.html" style="left: 722px; top: 790px; width: 564px; white-space: nowrap">Énigme bonus</a>
+		<a class="btn btn--screen" id="final-next" href="menu.html" style="left: 722px; top: 790px; width: 564px; white-space: nowrap"><img class="final__icon" src="assets/icon-help.png" alt=""><span id="final-next-label">Énigme bonus</span></a>
 	</main>
 	<script src="../shared/js/stage.js"></script>
 	<script src="js/timer.js"></script>
@@ -65,7 +72,8 @@
 		try { bonusSolved = localStorage.getItem("must:bonus") === "1"; } catch (error) {}
 		if (bonusSolved) {
 			const next = document.getElementById("final-next");
-			next.textContent = "Nouvelle partie";
+			next.querySelector(".final__icon").remove();
+			document.getElementById("final-next-label").textContent = "Nouvelle partie";
 			next.href = "index.html?reset";
 		}
 	</script>
