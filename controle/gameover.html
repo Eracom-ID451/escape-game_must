@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>M.U.S.T – Game over</title>
+	<link rel="stylesheet" href="../shared/css/win95.css">
+	<link rel="stylesheet" href="css/controle.css">
+	<style>
+		/* Même fond vert que l’accueil */
+		.stage {
+			background-image: url("assets/bg-plan.png");
+		}
+
+		.stage::before {
+			display: none;
+		}
+
+		.gameover__title {
+			left: 0;
+			right: 0;
+			top: 300px;
+			font-size: 200px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<main class="stage">
+		<p class="logo" style="top: -3px">M.U.S.T</p>
+
+		<!-- Temps écoulé (voir js/timer.js) -->
+		<h1 class="screen-title gameover__title">GAME OVER</h1>
+
+		<!-- Nouvelle partie : stations « Déconnecté », compte à rebours arrêté, retour à l’accueil -->
+		<a class="btn btn--screen" href="index.html?reset" style="left: 720px; top: 700px; width: 480px; white-space: nowrap">Nouvelle partie</a>
+	</main>
+	<script src="../shared/js/stage.js"></script>
+</body>
+</html>

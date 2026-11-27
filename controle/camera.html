@@ -68,13 +68,15 @@
 			</header>
 		</section>
 
-		<!-- Nouvelle partie : remet les cinq stations à « Déconnecté » et revient au menu -->
-		<a class="btn btn--nouvelle" href="menu.html?reset">Nouvelle partie</a>
+		<!-- Nouvelle partie : remet les cinq stations à « Déconnecté » arrête le compte à rebours et revient à l’accueil -->
+		<a class="btn btn--nouvelle" href="index.html?reset">Nouvelle partie</a>
 
 		<div class="camera__screen">
 			<img src="assets/camera.gif" alt="Image de la caméra extérieure">
 		</div>
 	</main>
 	<script src="../shared/js/stage.js"></script>
+	<script src="js/timer.js"></script>
+	<script>timerWatch();</script>
 </body>
 </html>

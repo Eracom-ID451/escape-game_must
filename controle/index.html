@@ -31,5 +31,19 @@
 		<a class="btn btn--screen" id="start" href="menu.html" style="left: 704px; top: 785px">Appareils</a>
 	</main>
 	<script src="../shared/js/stage.js"></script>
+	<script src="js/timer.js"></script>
+	<script>
+		// index.html?reset : nouvelle partie (stations « Déconnecté », compte à rebours arrêté)
+		if (new URLSearchParams(location.search).has("reset")) {
+			try {
+				["frigo", "aspirateur", "miroir", "reveil", "thermostat"].forEach((id) => localStorage.removeItem(`must:${id}`));
+			} catch (error) {}
+			timerReset();
+			history.replaceState(null, "", location.pathname);
+		}
+
+		// « Appareils » lance le compte à rebours de 20 minutes (s’il ne tourne pas déjà)
+		document.getElementById("start").addEventListener("click", timerStart);
+	</script>
 </body>
 </html>

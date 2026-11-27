@@ -138,6 +138,9 @@
 		<a class="btn btn--desktop btn--camera" href="camera.html">Caméra extérieure</a>
 		<a class="btn btn--desktop btn--plan" href="plan.html">Plan de l’appartement</a>
 
+		<!-- Compte à rebours (js/timer.js) -->
+		<div class="timer" id="timer" role="timer" aria-label="Temps restant"></div>
+
 		<footer class="taskbar">
 			<a class="btn taskbar__start" href="index.html"><img src="assets/icon-windows.png" width="29" height="29" alt="">M.U.S.T</a>
 			<span class="taskbar__sep" style="left: 170px"></span>
@@ -161,6 +164,7 @@
 		</footer>
 	</main>
 	<script src="../shared/js/stage.js"></script>
+	<script src="js/timer.js"></script>
 	<script>
 		// Horloge de la barre des tâches
 		const clock = document.querySelector(".taskbar__clock");
@@ -173,13 +177,14 @@
 		tick();
 
 		// Statut des stations : « Connecté » et la lettre gagnée une fois la station réussie
-		// (voir js/station.js). Ouvrir menu.html?reset remet le jeu à zéro (c’est ce que fait « Nouvelle partie » sur camera.html).
+		// (voir js/station.js). Ouvrir menu.html?reset (ou index.html?reset, bouton « Nouvelle partie » de camera.html) remet le jeu à zéro.
 		const LETTERS = { frigo: "H", aspirateur: "I", miroir: "E", reveil: "C", thermostat: "N" };
 
 		if (new URLSearchParams(location.search).has("reset")) {
 			try {
 				Object.keys(LETTERS).forEach((id) => localStorage.removeItem(`must:${id}`));
 			} catch (error) {}
+			timerReset();
 			history.replaceState(null, "", location.pathname);
 		}
 
@@ -206,6 +211,9 @@
 			else bonus.removeAttribute("href");
 			bonus.setAttribute("aria-disabled", String(!allSolved));
 		}
+
+		timerWatch(); // après le ?reset éventuel
+		mountTimer(document.getElementById("timer"));
 
 		renderStatus();
 		window.addEventListener("pageshow", renderStatus); // retour arrière depuis une station

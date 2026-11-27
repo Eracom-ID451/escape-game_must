@@ -47,6 +47,7 @@ Parcours du prototype Figma :
 - `controle/menu.html` : menu principal ; chaque fenêtre ouvre l’écran de code de sa station, et affiche « Connecté » avec sa lettre (H, I, E, C, N) une fois la station réussie
 - `controle/<station>.html` : saisie du code (Réveil 1448, Frigo 7231, Aspirateur 4530, Miroir 1725, Thermostat 2042, codes du prototype Figma) ; le × ramène au menu
 - `controle/final.html` : « Terminé ! », affiché après la cinquième station réussie
+- Compte à rebours de 20 minutes (`controle/js/timer.js`) : lancé par « Appareils » sur l’accueil, affiché en bas à gauche du menu (vert, puis jaune sous 10:00, rouge sous 2:00, rouge clignotant la dernière minute ; seuils réglables en tête du fichier). Arrêté à l’écran final ; temps écoulé → `controle/gameover.html`, dont le bouton « Nouvelle partie » remet le jeu à zéro
 - `controle/plan.html` : plan de l’appartement (bouton du menu)
 - `controle/camera.html` : caméra extérieure (bouton du menu) ; affiche `controle/assets/camera.gif`, à fournir
 - Barre des tâches du menu : les icônes ouvrent Réveil, Miroir, Aspirateur, Frigo, Thermostat, le plan et la caméra
@@ -64,7 +65,7 @@ mountStation(document.querySelector(".stage"), {
 ```
 
 - À la validation, l’événement `station:validate` est émis sur `document` avec `{ id, code, correct }`.
-- Une station réussie est notée dans `localStorage` (clé `must:<id>`). Remise à zéro : bouton « Nouvelle partie » en haut à gauche de la caméra extérieure (`camera.html`), qui ouvre `controle/menu.html?reset`.
+- Une station réussie est notée dans `localStorage` (clé `must:<id>`). Le compte à rebours y est aussi gardé (`must:start`, `must:done`). Remise à zéro : bouton « Nouvelle partie » de la caméra extérieure ou du game over, qui ouvre `controle/index.html?reset`.
 
 ## Miroir
 
