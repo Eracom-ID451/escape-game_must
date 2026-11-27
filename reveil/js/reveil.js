@@ -308,7 +308,9 @@ document.getElementById("keypad-ok").addEventListener("click", () => {
 
 render();
 
-// ---------- Message M.U.S.T au démarrage ----------
+// ---------- Message M.U.S.T au démarrage (rouvert par le bouton ?) ----------
+
+document.querySelector("[data-open-intro]").addEventListener("click", () => (document.getElementById("intro").hidden = false));
 
 document.querySelectorAll("[data-close-intro]").forEach((button) =>
 	button.addEventListener("click", () => (document.getElementById("intro").hidden = true))

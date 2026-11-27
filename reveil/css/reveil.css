@@ -330,7 +330,24 @@
 	background: var(--ecran);
 }
 
-/* ---------- Message M.U.S.T au démarrage ---------- */
+/* ---------- Message M.U.S.T au démarrage (rouvert par le bouton ?) ---------- */
+
+.help {
+	left: 790px;
+	top: 20px;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+}
+
+.help img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
 
 .intro {
 	inset: 0;
