@@ -8,6 +8,7 @@
 //
 // Le temps est gardé dans localStorage : must:start (heure de départ, en ms)
 // et must:done (temps restant au moment de la victoire, en ms).
+// must:bonus vaut 1 une fois l’énigme bonus résolue.
 
 const TIMER_DURATION = 20 * 60 * 1000;
 
@@ -40,6 +41,19 @@ function timerStart() {
 function timerReset() {
 	timerWrite("must:start", null);
 	timerWrite("must:done", null);
+	timerWrite("must:bonus", null);
+}
+
+function timerStarted() {
+	return timerRead("must:start") !== null;
+}
+
+// Temps mis pour gagner, en « MM:SS » (null si la partie n’est pas gagnée)
+function timerWinningTime() {
+	const done = timerRead("must:done");
+	if (done === null) return null;
+	const seconds = Math.round((TIMER_DURATION - done) / 1000);
+	return String(Math.floor(seconds / 60)).padStart(2, "0") + ":" + String(seconds % 60).padStart(2, "0");
 }
 
 // Partie gagnée : le temps restant est figé

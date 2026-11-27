@@ -21,6 +21,15 @@
 			mix-blend-mode: normal;
 		}
 
+		.final__time {
+			font-size: 32px;
+			font-weight: 700;
+		}
+
+		.final__time[hidden] {
+			display: none;
+		}
+
 		.logo,
 		.screen-title {
 			color: var(--noir);
@@ -33,13 +42,32 @@
 
 		<h1 class="screen-title" style="left: 722px; top: 256px">Terminé !</h1>
 
-		<section class="window window--text relief-window" style="left: 722px; top: 430px; width: 564px; height: 227px"></section>
+		<section class="window window--text relief-window" style="left: 722px; top: 430px; width: 564px; height: 300px"></section>
 		<p class="screen-text" style="left: 764px; top: 483px; width: 490px">M.U.S.T (Maison Urbaine Super Technologique) vous autorise à sortir de chez vous car vous avez connecté tous les appareils.</p>
+		<p class="screen-text final__time" id="final-time" style="left: 764px; top: 640px; width: 490px" hidden></p>
 
-		<a class="btn btn--screen" href="menu.html" style="left: 715px; top: 728px">Bravo</a>
+		<a class="btn btn--screen" id="final-next" href="menu.html" style="left: 722px; top: 790px; width: 564px; white-space: nowrap">Énigme bonus</a>
 	</main>
 	<script src="../shared/js/stage.js"></script>
 	<script src="js/timer.js"></script>
-	<script>timerStop(); // partie gagnée : le compte à rebours s’arrête</script>
+	<script>
+		// Partie gagnée : le compte à rebours s’arrête et le temps s’affiche
+		timerStop();
+		const winningTime = timerWinningTime();
+		if (winningTime) {
+			const time = document.getElementById("final-time");
+			time.textContent = `Votre temps : ${winningTime}`;
+			time.hidden = false;
+		}
+
+		// Énigme bonus déjà résolue : le bouton lance une nouvelle partie
+		let bonusSolved = false;
+		try { bonusSolved = localStorage.getItem("must:bonus") === "1"; } catch (error) {}
+		if (bonusSolved) {
+			const next = document.getElementById("final-next");
+			next.textContent = "Nouvelle partie";
+			next.href = "index.html?reset";
+		}
+	</script>
 </body>
 </html>

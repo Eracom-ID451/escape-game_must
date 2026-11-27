@@ -42,8 +42,15 @@
 			history.replaceState(null, "", location.pathname);
 		}
 
-		// « Appareils » lance le compte à rebours de 20 minutes (s’il ne tourne pas déjà)
-		document.getElementById("start").addEventListener("click", timerStart);
+		// Le bouton affiche « Start » avant la partie, « Appareils » une fois la partie lancée.
+		// Il lance le compte à rebours de 20 minutes (s’il ne tourne pas déjà), puis ouvre le menu.
+		const startButton = document.getElementById("start");
+		function updateStartLabel() {
+			startButton.textContent = timerRead("must:start") === null ? "Start" : "Appareils";
+		}
+		updateStartLabel();
+		window.addEventListener("pageshow", updateStartLabel); // retour arrière depuis le menu
+		startButton.addEventListener("click", timerStart);
 	</script>
 </body>
 </html>

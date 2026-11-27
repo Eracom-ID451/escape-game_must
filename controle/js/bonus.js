@@ -135,6 +135,7 @@ function mountEnigmeBonus(container, { solution = "" } = {}) {
 		document.dispatchEvent(new CustomEvent("enigme:validate", { detail: { code, correct } }));
 
 		if (correct) {
+			try { localStorage.setItem("must:bonus", "1"); } catch (error) {}
 			setTimeout(() => location.href = "chien-reussite.html", 600);
 		} else {
 			setTimeout(() => {
