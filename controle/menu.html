@@ -135,7 +135,6 @@
 		</a>
 		</nav>
 
-		<button type="button" class="btn btn--desktop btn--reset">Nouvelle partie</button>
 		<a class="btn btn--desktop btn--camera" href="camera.html">Caméra extérieure</a>
 		<a class="btn btn--desktop btn--plan" href="plan.html">Plan de l’appartement</a>
 
@@ -174,18 +173,13 @@
 		tick();
 
 		// Statut des stations : « Connecté » et la lettre gagnée une fois la station réussie
-		// (voir js/station.js). Le bouton « Nouvelle partie » (ou menu.html?reset) remet le jeu à zéro.
+		// (voir js/station.js). Ouvrir menu.html?reset remet le jeu à zéro (c’est ce que fait « Nouvelle partie » sur camera.html).
 		const LETTERS = { frigo: "H", aspirateur: "I", miroir: "E", reveil: "C", thermostat: "N" };
 
-		// Nouvelle partie : les cinq stations repassent à « Déconnecté »
-		function resetGame() {
+		if (new URLSearchParams(location.search).has("reset")) {
 			try {
 				Object.keys(LETTERS).forEach((id) => localStorage.removeItem(`must:${id}`));
 			} catch (error) {}
-		}
-
-		if (new URLSearchParams(location.search).has("reset")) {
-			resetGame();
 			history.replaceState(null, "", location.pathname);
 		}
 
@@ -212,11 +206,6 @@
 			else bonus.removeAttribute("href");
 			bonus.setAttribute("aria-disabled", String(!allSolved));
 		}
-
-		document.querySelector(".btn--reset").addEventListener("click", () => {
-			resetGame();
-			renderStatus();
-		});
 
 		renderStatus();
 		window.addEventListener("pageshow", renderStatus); // retour arrière depuis une station

@@ -64,7 +64,7 @@ mountStation(document.querySelector(".stage"), {
 ```
 
 - À la validation, l’événement `station:validate` est émis sur `document` avec `{ id, code, correct }`.
-- Une station réussie est notée dans `localStorage` (clé `must:<id>`). Remise à zéro : bouton « Nouvelle partie » du menu (ou `controle/menu.html?reset`).
+- Une station réussie est notée dans `localStorage` (clé `must:<id>`). Remise à zéro : bouton « Nouvelle partie » en haut à gauche de la caméra extérieure (`camera.html`), qui ouvre `controle/menu.html?reset`.
 
 ## Miroir
 

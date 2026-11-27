@@ -45,6 +45,16 @@
 			height: 100%;
 			object-fit: contain;
 		}
+
+		.btn--nouvelle {
+			--u: 2px;
+			--btn-inset: 2px;
+			left: 24px;
+			top: 24px;
+			width: 150px;
+			height: 36px;
+			font-size: 14px;
+		}
 	</style>
 </head>
 <body class="camera">
@@ -57,6 +67,9 @@
 				<a class="titlebar__btn titlebar__btn--close relief-button" href="menu.html" aria-label="Fermer"><img src="assets/icon-close.svg" alt=""></a>
 			</header>
 		</section>
+
+		<!-- Nouvelle partie : remet les cinq stations à « Déconnecté » et revient au menu -->
+		<a class="btn btn--nouvelle" href="menu.html?reset">Nouvelle partie</a>
 
 		<div class="camera__screen">
 			<img src="assets/camera.gif" alt="Image de la caméra extérieure">
