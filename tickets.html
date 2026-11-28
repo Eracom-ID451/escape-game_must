@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>Escape Game M.U.S.T – Tickets</title>
+	<style>
+		/* Police du jeu : Recursive, réglée comme dans shared/css/win95.css (Mono Linear) */
+		@font-face {
+			font-family: "Recursive";
+			src: url("shared/fonts/recursive-latin-full-normal.woff2") format("woff2-variations");
+			font-weight: 300 1000;
+			font-style: oblique 0deg 15deg;
+			font-display: block;
+		}
+
+		@page {
+			size: A4;
+			margin: 10mm;
+		}
+
+		body {
+			margin: 0;
+		}
+
+		p {
+			margin: 0;
+			font-family: "Recursive", monospace;
+			font-variation-settings: "MONO" 1, "CASL" 0, "CRSV" 0.5, "slnt" 0;
+			font-size: 32pt;
+			padding: 10mm;
+			border-top: 0.5pt solid #000;
+			border-bottom: 0.5pt solid #000;
+			break-inside: avoid;
+		}
+	</style>
+</head>
+<body>
+	<!-- Les tickets sont générés par le script ci-dessous : changer TICKET_COUNT pour en avoir plus ou moins -->
+	<script>
+		const TICKET_COUNT = 100;
+
+		for (let i = 1; i <= TICKET_COUNT; i++) {
+			const ticket = document.createElement("p");
+			ticket.innerHTML = `<b>Escape Game M.U.S.T</b> &emsp; Ticket ${String(i).padStart(3, "0")}`;
+			document.body.append(ticket);
+		}
+	</script>
+</body>
+</html>
